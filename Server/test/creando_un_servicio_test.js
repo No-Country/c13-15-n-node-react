@@ -4,7 +4,7 @@ const services_router   = require( '../routers/services_router' );
 const expect            = require('chai').expect;
 const URL               = '/api/servicios';
 const DATOS_DEL_SERVICIO = {
-   usuario_id: btoa("emanuel"),
+   identificador_de_usuario: btoa("emanuel"),
    nombre_servicio: "Peluquería Pepito",
    meses: [7, 8, 10],
    dias: [1, 2, 4],
