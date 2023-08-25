@@ -1,8 +1,7 @@
-const PORT     = 9000;
-const express  = require('express');
-const app      = express();
+const express        = require('express');
+const app            = express();
 
-app.listen( PORT );
+app.use( express.json() );
 
 
 module.exports = app;
