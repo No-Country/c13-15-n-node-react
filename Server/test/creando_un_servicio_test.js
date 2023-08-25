@@ -1,6 +1,6 @@
 const request           = require('supertest');
-const app               = require('../src/app');
-const services_router   = require( '../src/services_router' );
+const app               = require('../app');
+const services_router   = require( '../routers/services_router' );
 const expect            = require('chai').expect;
 const URL               = '/api/servicios';
 const DATOS_DEL_SERVICIO = {
