@@ -15,6 +15,17 @@ const DATOS_DEL_SERVICIO = {
    intervalo: 1800
 };
 
+const DATOS_CON_USUARIO_INVALIDO = {
+   identificador_de_usuario: btoa("emmanuel")
+   , nombre_servicio: "Peluquería pepito"
+   , meses: [7, 8, 9]
+   , dias: [1, 2, 4]
+   , horarios: {
+      inicio: '09:00-0300'
+      , fin: '16:00-0300'
+   }
+};
+
 describe(`POST ${URL}`, function () {
    app.use('/api/servicios', services_router);
    describe('cuando se crea exitosamente el servicio', function () {
