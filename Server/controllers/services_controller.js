@@ -2,7 +2,14 @@ const servicios   = require('../models/servicios');
 const usuarios    = require('../models/usuarios' );
 
 const create_service = (request, response) => {
-   const id_usuario = usuarios.get_usuario_id_from( request.body.identificador_de_usuario );
+    const identificador = request.body.identificado_de_usuario;
+    if( usuarios.no_es_valido( identificador ) ) {
+      return response.status(200).json( {
+         mensaje: "El usuario no puede realizar la operación"
+      });
+   }
+
+   const id_usuario = usuarios.getIdentificadorPara( identificador );
 
    const servicio = {
       usuario_id: id_usuario,
