@@ -1,19 +1,22 @@
-const client = require('../databases/connect')
-
-client.connect()
+const { DataTypes } = require('sequelize');
+const db_sequelize = require('../database/sequelizeConfig');
 
 module.export = {
-    peticion(nombre){
-        return new Promise((resolver, reject) => {
-            client.query('insert into name_db (nombre) values ($1)', [nombre], (err, result) => {
-                if(err){
-                    reject(err)
-                } else {
-                    resolver(result)
-                }
-            })
-        })
-    }
+    name_models: db_sequelize.define('name_tabla', {
+        name_column: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        name_column: {
+            type: DataTypes.STRING,
+        },
+        name_column: {
+            type: DataTypes.STRING,
+        }
+    }, {
+        timestamps: false // Agrega esta opción para desactivar las columnas createdAt y updatedAt
+    }),
 }
 
 
