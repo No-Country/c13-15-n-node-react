@@ -1,15 +1,20 @@
-const db          = require('../utils/connect.js')
-const servicios   = {
-}
+const { DataTypes } = require("sequelize");
 
-servicios.crear = function (servicio) {
-   db.insert( servicio );
-   const s = {
-      servicio: btoa(servicio.nombre_servicio),
-      enlace: `http://localhost:9000/api/calendarios?servicio=${btoa('qwerty')}`,
-      mensaje: "Se creó exitosamente el servicio"
-   };
-   return s;
-}
+const Services = sequelize.define('services', {
+   service_id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false
+   },
+   name: {
+      type: DataTypes.STRING,
+      allowNull: false
+   },
+   duration: {
+      type: DataTypes.INTEGER,
+      default: 15
+   }
+}, { timestamp: false });
 
-module.exports = servicios;
+
+module.exports = Services;
