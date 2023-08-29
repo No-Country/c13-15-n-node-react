@@ -1,4 +1,4 @@
-const client = require('../databases/connect')
+const client = require('../utils/connect')
 const { DataTypes } = require('sequelize');
 const sequelize = client.connect();
 

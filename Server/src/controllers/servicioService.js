@@ -1,5 +1,5 @@
-const servicios   = require('../models/servicios');
-const usuarios    = require('../models/usuarios' );
+const servicios   = require('../models/servicioModel');
+const usuarios    = require('../models/usuarioModel' );
 
 const create_service = (request, response) => {
     const identificador = request.body.identificado_de_usuario;
