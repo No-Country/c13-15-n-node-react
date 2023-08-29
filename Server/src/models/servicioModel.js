@@ -1,4 +1,4 @@
-const db          = require('../databases/connect.js')
+const db          = require('../utils/connect.js')
 const servicios   = {
 }
 

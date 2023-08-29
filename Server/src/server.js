@@ -3,7 +3,7 @@ const app = express()
 //falta instalar 
 //const cors = require('cors')
 const router = require('./routers/router')
-const servicios_router = require('./routers/services_router')
+const servicios_router = require('./routers/servicioRouter')
 
 app.use(express.json())
 //app.use(cors())
