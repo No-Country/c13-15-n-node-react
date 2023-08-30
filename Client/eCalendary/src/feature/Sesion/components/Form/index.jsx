@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Card, Divider, Input} from "@nextui-org/react";
 import { useForm } from "react-hook-form"
-// import {Button, Card, Divider, CardHeader, CardBody, CardFooter, Link, Image} from "@nextui-org/react";
+import { getUser } from '../../services/user';
 
 export const Form = ({title = "Register"}) => {
 
@@ -23,7 +23,8 @@ export const Form = ({title = "Register"}) => {
 
   return (
         <Card className="max-w-[400px] p-4 flex flex-col gap-2">
-            {title}
+            {title} 
+            {user ? user.name : 'no hay usuario'}
             <Divider/>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-8'>
                 <Input
