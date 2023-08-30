@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
-const Servicio      = require('./servicioModel');
-const { SERIALIZABLE } = require("sequelize/types/table-hints");
+const Servicio = require('./servicioModel');
+const sequelize = require('../utils/connect');
 
 const Users = sequelize.define('users', {
     id: {
@@ -22,11 +22,11 @@ const Users = sequelize.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     }
-}, { timestamps: false } );
+}, { timestamps: false });
 
 
-Users.hasOne( Servicio )
-Servicio.belongsTo( Users );
+Users.hasOne(Servicio)
+Servicio.belongsTo(Users);
 
 
 module.exports = Users;
