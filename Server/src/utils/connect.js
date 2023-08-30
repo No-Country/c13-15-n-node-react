@@ -1,10 +1,10 @@
 const { Sequelize } = require('sequelize')
-const config = require('../config/config')
+const config = require('../../config')
 require('dotenv').config()
 
-const db = new Sequelize({
+const sequelize = new Sequelize({
     dialect: 'postgres',
-    host: config.api.host,
+    host: config.db.host,
     username: config.db.user,
     password: config.db.pass,
     database: config.db.name,
@@ -12,4 +12,4 @@ const db = new Sequelize({
 })
 
 
-module.exports = db
+module.exports = sequelize

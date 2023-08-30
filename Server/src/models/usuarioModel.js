@@ -1,42 +1,35 @@
 const {DataTypes}=require('sequelize')
-const db=require('../utils/database')
+const sequelize=require('../utils/connect')
+const Servicio = require('./servicioModel');
 
-const Usuario=db.define('usuario',{
-    id:{
+
+const Users = sequelize.define('users', {
+    id: {
         type: DataTypes.UUID,
+        allowNull: false,
         primaryKey: true
-    },
-    firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [2, 50]
-        }
-    },
-    lastName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len : [2, 50]
-        }
     },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            isEmail: true
-        },
+        unique: true
+    },
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
         unique: true
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     }
-   
-}
+}, { timestamps: false });
 
-)
-module.exports=Usuario
+
+Users.hasOne(Servicio)
+Servicio.belongsTo(Users);
+
+module.exports = Users
 
 
 
