@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./server.js"
+    "test": "mocha --exit",
+    "dev": "nodemon src/server.js"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
@@ -13,11 +13,14 @@
     "jsonwebtoken": "9.0.1",
     "pg": "8.11.3",
     "pg-hstore": "2.3.4",
-    "sequelize": "6.32.1"
+    "sequelize": "6.32.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "chai": "^4.3.8",
     "mocha": "10.2.0",
     "nodemon": "3.0.1",
+    "sqlite3": "^5.1.6",
     "supertest": "6.3.3"
   },
   "keywords": [],
