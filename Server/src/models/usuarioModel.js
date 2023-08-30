@@ -1,15 +1,32 @@
-const bcrypt        = require('bcryptjs');
+const { DataTypes } = require("sequelize");
+const Servicio = require('./servicioModel');
+const sequelize = require('../utils/connect');
 
-function validar_usuario(token) {
-    
-}
-
-
-module.exports = {
-    no_es_valido: function ( token ) {
-        return false;
+const Users = sequelize.define('users', {
+    id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        primaryKey: true
     },
-    getIdentificadorPara: function( identificador ) {
-        return btoa(Math.random());
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
-}
+}, { timestamps: false });
+
+
+Users.hasOne(Servicio)
+Servicio.belongsTo(Users);
+
+
+module.exports = Users;
