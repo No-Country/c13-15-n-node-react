@@ -11,6 +11,10 @@ function connect() {
    return sequelize;
 }
 
+function insert(item) {
+   ;
+}
+
 module.exports = {
-   connect
+   connect, insert
 };

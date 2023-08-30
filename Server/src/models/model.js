@@ -1,4 +1,4 @@
-const client = require('../databases/connect')
+const client = require('../utils/connect')
 const { DataTypes } = require('sequelize');
 const sequelize = client.connect();
 
@@ -21,7 +21,7 @@ const Users = sequelize.define( 'users', {
     timestamps: false
     });
 
-    const Services = sequelize.define( 'services', {
+const Services = sequelize.define( 'services', {
     service_id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -33,7 +33,7 @@ const Users = sequelize.define( 'users', {
     }
     } );
 
-    const Schedules = sequelize.define( 'schedules', {
+const Schedules = sequelize.define('schedules', {
     schedule_id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -45,7 +45,7 @@ const Users = sequelize.define( 'users', {
 }
 );
 
-const ServicesScheduled = sequelize.define( 'services_scheduled' )
+const ServicesScheduled = sequelize.define('services_scheduled' )
 
 Users.hasMany( Services, {
     onDelete: 'CASCADE',
