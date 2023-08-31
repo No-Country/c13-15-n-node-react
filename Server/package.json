@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --exit",
-    "dev": "nodemon src/server.js"
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "4.18.2",
     "jsonwebtoken": "9.0.1",
     "pg": "8.11.3",

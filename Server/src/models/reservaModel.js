@@ -1,6 +1,7 @@
-const { Sequelize, DataTypes } = require("sequelize");
+const {DataTypes } = require("sequelize");
+const sequelize= require('../utils/connect');
 const HorarioServicioModel = require("./horariosServicioModel");
-const sequelize                  = require('../utils/connect');
+
 
 const ReservationModel = sequelize.define( 'reservas', {
    reservation_id: {
@@ -21,7 +22,4 @@ const ReservationModel = sequelize.define( 'reservas', {
    }
 });
 
-ReservationModel.hasMany( HorarioServicioModel );
-HorarioServicioModel.belongsTo( ReservationModel );
-
-module.exports = ReservationModel;
+module.exports = ReservationModel
