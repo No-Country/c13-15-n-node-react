@@ -22,7 +22,7 @@ const ReservationModel = sequelize.define( 'reservas', {
    }
 });
 
-ReservationModel.hasMany( HorarioServicioModel );
-HorarioServicioModel.belongsTo( ReservationModel );
+// ReservationModel.hasMany( HorarioServicioModel );
+// HorarioServicioModel.belongsTo( ReservationModel );
 
 module.exports = ReservationModel

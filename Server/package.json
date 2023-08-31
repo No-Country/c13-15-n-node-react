@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --exit",
+    "start": "node ./src/app.js",
     "dev": "nodemon ./src/app.js"
   },
   "dependencies": {

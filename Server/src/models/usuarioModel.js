@@ -26,8 +26,8 @@ const Users = sequelize.define('users', {
 }, { timestamps: false });
 
 
-Users.hasOne(Servicio)
-Servicio.belongsTo(Users);
+// Users.hasOne(Servicio)
+// Servicio.belongsTo(Users);
 
 module.exports = Users
 

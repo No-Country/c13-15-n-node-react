@@ -3,7 +3,7 @@ const express = require('express')
 const cors = require('cors')
 
 //? Files
-
+const initModels=require('./models/initmodels')
 const config = require('../config')
 const sequelize = require('./utils/connect')
 
@@ -25,11 +25,12 @@ sequelize.sync()
     .then(() => console.log('Database Synced'))
     .catch(err => console.log(err))
 
+initModels()
 //? Routes v1
 app.get('/', (req, res) => {
     res.status(200).json({
         status: 200,
-        message: 'Ok!',
+        message: 'API Calendary Ok!',
     })
 })
 
