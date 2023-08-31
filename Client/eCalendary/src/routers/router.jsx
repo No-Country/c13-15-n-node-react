@@ -28,9 +28,9 @@ const router = createBrowserRouter([
             {
                 path: PATH_BUSINESS,
                 element: 
-                <PrivateRouter>
+                // <PrivateRouter>
                     <Business />
-                </PrivateRouter>
+                // </PrivateRouter>
             },
             {
                 path: PATH_REGISTER,
