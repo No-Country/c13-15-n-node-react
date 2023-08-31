@@ -17,5 +17,4 @@ const Services = sequelize.define('services', {
    }
 }, { timestamp: false });
 
-
 module.exports = Services;
