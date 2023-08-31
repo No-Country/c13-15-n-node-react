@@ -1,7 +1,6 @@
 const { DataTypes }  = require("sequelize");
 const sequelize      = require('../utils/connect');
 
-
 const Services = sequelize.define('services', {
    service_id: {
       type: DataTypes.UUID,
@@ -18,5 +17,4 @@ const Services = sequelize.define('services', {
    }
 }, { timestamp: false });
 
-
-module.exports = Services
+module.exports = Services;

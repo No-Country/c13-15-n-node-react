@@ -1,6 +1,6 @@
 const request           = require('supertest');
-const app               = require('../app');
-const services_router   = require( '../routers/services_router' );
+const app               = require('../src/app');
+const services_router   = require( '../src/routers/servicioRouter' );
 const expect            = require('chai').expect;
 const URL               = '/api/servicios';
 const DATOS_DEL_SERVICIO = {
@@ -13,6 +13,17 @@ const DATOS_DEL_SERVICIO = {
       fin: '16:00-0300'
    },
    intervalo: 1800
+};
+
+const DATOS_CON_USUARIO_INVALIDO = {
+   identificador_de_usuario: btoa("emmanuel")
+   , nombre_servicio: "Peluquería pepito"
+   , meses: [7, 8, 9]
+   , dias: [1, 2, 4]
+   , horarios: {
+      inicio: '09:00-0300'
+      , fin: '16:00-0300'
+   }
 };
 
 describe(`POST ${URL}`, function () {

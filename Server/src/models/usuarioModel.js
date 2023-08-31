@@ -1,7 +1,6 @@
-const {DataTypes}=require('sequelize')
-const sequelize=require('../utils/connect')
-const Servicio = require('./servicioModel');
-
+const { DataTypes } =require('sequelize')
+const sequelize     =require('../utils/connect')
+const Servicio      = require('./servicioModel');
 
 const Users = sequelize.define('users', {
     id: {
@@ -30,8 +29,4 @@ const Users = sequelize.define('users', {
 // Servicio.belongsTo(Users);
 
 module.exports = Users
-
-
-
-
 
