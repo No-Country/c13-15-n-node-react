@@ -1,30 +1,15 @@
-// const { Sequelize, DataTypes } = require('sequelize');
-// const sequelize = new Sequelize({
-//    dialect: 'sqlite',
-//    storage: 'test.sqlite'
-// });
-
-// module.exports = sequelize;
-
-//borrar despues
 const { Sequelize } = require('sequelize')
+const config = require('../../config')
+require('dotenv').config()
 
-//Configuracion de base de datos
-const sequelize = new Sequelize('calendario', 'postgres', '12345', {
-    host: 'localhost',
+const sequelize = new Sequelize({
     dialect: 'postgres',
-    port: 5432,
+    host: config.db.host,
+    username: config.db.user,
+    password: config.db.pass,
+    database: config.db.name,
+    port: config.db.port,
 })
-
-//Prueba de conexion
-sequelize
-    .authenticate()
-    .then(()=>{
-        console.log('Conexion a la base de datos extablecida correctamente')
-    })
-    .catch((error)=>{
-        console.error('No se conecto a la base de datos ', error)
-    })
 
 
 module.exports = sequelize
