@@ -37,7 +37,7 @@ const CalendarCustom = () => {
   };
 
   const renderWeekHeader = () => {
-    const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const weekDays = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
     return (
         <header className='grid grid-cols-7 gap-1'>
             {

@@ -11,7 +11,7 @@ const Calendar = () => {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen gap-4 m-auto py-8">
 
-      <h1 className='text-center text-2xl'>PaseaPerros.com.pe</h1>
+      <h1 className='text-center text-2xl'>Peluqueria Don Juan</h1>
       <div className='w-full flex flex-col lg:flex-row justify-center align-middle  gap-4 '>
         <CalendarCustom />
         <Divider orientation="horizontal" className='lg:hidden ' />

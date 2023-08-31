@@ -19,32 +19,32 @@ export default function NavbarCustom() {
     <Navbar>
       <NavbarBrand>
         <AcmeLogo />
-        <p className="font-bold text-inherit">ACME</p>
+        <p className="font-bold text-inherit">E-Calendar</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
+        {/* <NavbarItem>
           <Link color="foreground" href="#">
             Features
           </Link>
-        </NavbarItem>
+        </NavbarItem> */}
         <NavbarItem isActive>
           <Link href={PATH_BUSINESS} aria-current="page">
-            Business
+            Servicios
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href={PATH_CALENDAR}>
-            Calendar
+            Calendario
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="#">Iniciar sesion</Link>
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
+            Registrarse
           </Button>
         </NavbarItem>
       </NavbarContent>

@@ -6,7 +6,7 @@ import MySelect from '../components/MySelect'
 const Business = () => {
   return (
     <div className=' '>
-      Business
+      Servicios
       <Textarea1></Textarea1>
       <MySelect></MySelect>
       <Button color="primary">

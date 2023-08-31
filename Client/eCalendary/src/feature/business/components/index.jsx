@@ -7,7 +7,7 @@ export function Textarea1() {
 
     return (
       <Textarea
-        label="Nombre"
+        label="Nombre de usuario"
         labelPlacement="outside"
         placeholder="Descripcion"
         className="max-w-xs"
