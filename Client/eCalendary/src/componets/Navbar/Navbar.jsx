@@ -1,5 +1,6 @@
 import React from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import { PATH_BUSINESS, PATH_CALENDAR } from "../../routers/routerPaths";
 
 const AcmeLogo = () => (
     <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
@@ -13,7 +14,7 @@ const AcmeLogo = () => (
   );
  
 
-export default function App() {
+export default function NavbarCustom() {
   return (
     <Navbar>
       <NavbarBrand>
@@ -27,13 +28,13 @@ export default function App() {
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
+          <Link href={PATH_BUSINESS} aria-current="page">
+            Business
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
+          <Link color="foreground" href={PATH_CALENDAR}>
+            Calendar
           </Link>
         </NavbarItem>
       </NavbarContent>
