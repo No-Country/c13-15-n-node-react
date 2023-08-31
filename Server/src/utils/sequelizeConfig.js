@@ -1,10 +1,10 @@
 const { Sequelize } = require('sequelize')
 
 //Configuracion de base de datos
-const db_sequelize = new Sequelize('name_db', 'root', 'pass', {
+const db_sequelize = new Sequelize('calendario', 'root', '12345', {
     host: 'localhost',
     dialect: 'postgress',
-    port: 3306,
+    port: 5432,
 })
 
 //Prueba de conexion
