@@ -1,29 +1,25 @@
 import {PrivateRouter} from "../routers/PrivateRouter"
 import {PublicRouter} from "../routers/PublicRouter"
 import { createBrowserRouter } from "react-router-dom";
-
+import Navbar from "../componets/Navbar";
 const router = createBrowserRouter([
     {
         path: "/",
         element: 
-        <PrivateRouter>
-            (
-            <div>
-                <h1>Tiene que ir home</h1>
-            </div>
-            )
-        </PrivateRouter>
+        <PublicRouter>
+            <Navbar/>
+        </PublicRouter>
     },
     {
         path: "/login",
         element: 
-        <PublicRouter>
+        <PrivateRouter>
             (
             <div>
-                <h1>Tiene que ir home</h1>
+                <h1>Tiene que ir LOGIN</h1>
             </div>
             )
-        </PublicRouter>
+        </PrivateRouter>
     },
     {
         path: "/register",

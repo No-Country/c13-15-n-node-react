@@ -1,72 +1,68 @@
 import { AuthContext } from './AuthContext'
-import React, { useReducer } from 'react'
+import React, { useReducer } from "react"; 
 
-const type = {
+
+// Definir tipos para las acciones
+const types = {
     login: '[Auth] Login',
     logout: '[Auth] Logout'
-}
+};
 
-const authReducer = (state = {}, action ) =>{
-    switch (action.type){
-        case type.login:
+const authReducer = (state = {}, action) => {
+    switch (action.type) {
+        case types.login: 
             return {
                 ...state,
-                logged: true
-            }
-        case type.logout:
+                logged: true, 
+            };
+        case types.logout: 
             return {
                 ...state,
-                logged: false
-            }
+                logged: false, 
+            };
         default:
-            return state
+            return state;
     }
-}
+};
 
-const AuthProvider = ({children}) =>{
+const AuthProvider = ({children}) => {
+
     const init = () => {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem("token");
         return {
-            //si es que hay un token lo vuelve un boleano
-            logged: !!token
-        }
-    }
+            logged: !!token,
+        };
+    };
+    
+    //funciona
+    const [state, dispatch] = useReducer(authReducer, {}, init); 
+    console.log(state)
 
-    const [state, dispatch] = useReducer(authReducer, {}, init)
-    const login = () =>{
+    const login = () => {
         const action = {
-            type: type.login
-        }
-        dispatch(action)
-    }
+            type: types.login, 
+        };
+        dispatch(action);
+    };
 
-    const logout = ()=> {
-        localStorage.removeItem('token')
+    const logout = () => {
+        localStorage.removeItem("token"); 
         const action = {
-            type: type.logout
-        }
-        dispatch(action)
-    }
+            type: types.logout, 
+        };
+        dispatch(action);
+    };
 
     return (
-        <AuthContext.Provider value={
-            {
-            login, logout, 
-            ...state
-            }
-        }>
+        <AuthContext.Provider value={{
+            ...state,
+            login, logout
+        }}>
             {children}
         </AuthContext.Provider>
-    )
-}
+
+    );
+};
 
 
-
-
-
-
-
-
-
-
-
+export default AuthProvider;
