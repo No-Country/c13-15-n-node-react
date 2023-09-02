@@ -3,7 +3,7 @@ import 'tailwindcss/tailwind.css';
 
 const TimePicker = () => {
   const [selectedInterval, setSelectedInterval] = useState(60);
-  const [busyHours, setBusyHours] = useState([9, 10, 10.25, 11, 12, 13, 14]);
+  const [busyHours, setBusyHours] = useState([9, 10, 10.25, 11, 12, 13, 14, 0]);
   const [selectedHours, setSelectedHours] = useState([]);
 
   const handleIntervalChange = (e) => {
@@ -53,7 +53,7 @@ const TimePicker = () => {
   return (
     <div className="w-full max-w-md mx-auto p-4">
 
-      <div className="mb-4 hidden">
+      <div className="mb-4 ">
         <label htmlFor="interval" className="text-lg font-semibold">Seleccionar intervalo:</label>
         <select
           id="interval"

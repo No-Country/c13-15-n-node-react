@@ -1,8 +1,9 @@
 import React from 'react'
+import { FormCustom } from '../components/Form'
 
 const Register = () => {
   return (
-    <div>Register</div>
+      <div> <FormCustom title='Registro' ></FormCustom> </div>
   )
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
+import { FormCustom } from '../components/Form'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div> <FormCustom title='Login' ></FormCustom> </div>
   )
 }
 

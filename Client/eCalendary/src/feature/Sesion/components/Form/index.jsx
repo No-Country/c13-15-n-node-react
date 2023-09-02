@@ -1,9 +1,9 @@
 import React from 'react'
 import {Button, Card, Divider, Input} from "@nextui-org/react";
 import { useForm } from "react-hook-form"
-import { getUser } from '../../services/user';
+// import { getUser } from '../../services/user';
 
-export const Form = ({title = "Register"}) => {
+export const FormCustom = ({title = "Register"}) => {
 
   const [isVisible, setIsVisible] = React.useState(false);
 
