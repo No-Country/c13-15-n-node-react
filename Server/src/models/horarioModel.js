@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const {DataTypes } = require('sequelize');
 const sequelize = require('../utils/connect');
 
 const Schedules = sequelize.define('schedules', {
@@ -6,11 +6,9 @@ const Schedules = sequelize.define('schedules', {
       type: DataTypes.UUID,
       primaryKey: true,
       allowNull: false
-   }
-   , schedule: {
+   }, schedule: {
       type: DataTypes.DATE, allowNull: false
    }
-}
-);
+});
 
-module.exports = Schedules;
+module.exports = Schedules
