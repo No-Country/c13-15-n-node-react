@@ -12,7 +12,7 @@ const AcmeLogo = () => (
       />
     </svg>
   );
- 
+
 
 export default function NavbarCustom() {
   return (
