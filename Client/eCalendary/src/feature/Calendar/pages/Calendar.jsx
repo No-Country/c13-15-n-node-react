@@ -4,12 +4,15 @@ import { Button, Divider, Input, Modal, ModalBody, ModalContent, ModalFooter, Mo
 import TimePicker from '../components/schedule';
 import { useCalendarStore } from '../../../store/CalendarStore';
 import { toDateFormater, toInputDate } from '../../../utils/formaterDate';
+import { useScheduleStore } from '../../../store/ScheduleStore';
 
 
 const Calendar = () => {
     const selectedDate = useCalendarStore((state) => state.selectedDate)
+    const [selectedHours] = useScheduleStore((state) => [state.selectedHours]);
+
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
-    console.log({ selectedDate });
+    console.log({ selectedDate,selectedHours });
 
     return (
         <div className="flex flex-col items-center justify-start min-h-screen gap-4 m-auto py-8">
