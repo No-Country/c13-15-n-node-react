@@ -3,7 +3,7 @@ import {Button, Card, Divider, Input} from "@nextui-org/react";
 import { useForm } from "react-hook-form"
 // import { getUser } from '../../services/user';
 
-export const FormCustom = ({title = "Register"}) => {
+const FormCustom = ({title}) => {
 
   const [isVisible, setIsVisible] = React.useState(false);
 
@@ -16,23 +16,22 @@ export const FormCustom = ({title = "Register"}) => {
     formState: { errors },
   } = useForm()
 
+  console.log(title)
 
-  const onSubmit = (data) => console.log({title,data})
+  const onSubmit = (data) => console.log({title, data})
 
 //   console.log(watch("email")) // watch input value by passing the name of it
 
   return (
-        <Card className="max-w-[400px] p-4 flex flex-col gap-2">
+        <Card className="max-w-[400px] p-4 flex flex-col gap-2"> 
             {title} 
-            {user ? user.name : 'no hay usuario'}
+            {/* {user ? user.name : 'no hay usuario'} */}
             <Divider/>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-8'>
                 <Input
                     // isClearable
                     type="email"
                     label="Email"
-                    defaultValue="junior@nextui.org" //comment
-                    placeholder="alexanderbvart@gmail.com"
                     description="Ingrese correctamente su correo electronico."
                     onClear={() => console.log("input cleared")}
                     className="max-w"
@@ -46,7 +45,7 @@ export const FormCustom = ({title = "Register"}) => {
                 <Input
                     type={isVisible ? "text" : "password"}
                     label="Password"
-                    placeholder="Enter your password"
+                    //placeholder="Enter your password"
                     description="Ingrese correctamente su contraseña"
                     onClear={() => console.log("input cleared")}
                     className="max-w"
@@ -59,9 +58,12 @@ export const FormCustom = ({title = "Register"}) => {
                 {/* {errors.password && <span>This field is required</span>} */}
 
                 <Button color="primary" variant="shadow" type='submit'>
-                    solid
+                  {title === 'Login' ? 'Iniciar Sesion' : 'Registrarse'}
                 </Button>  
             </form>
         </Card>
   )
 }
+
+
+export default FormCustom

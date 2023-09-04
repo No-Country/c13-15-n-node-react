@@ -1,9 +1,11 @@
 import React from 'react'
-import { FormCustom } from '../components/Form'
+import FormCustom from '../components/Form/index'
 
 const Register = () => {
   return (
-      <div> <FormCustom title='Registro' ></FormCustom> </div>
+    <div className='flex justify-center items-center h-screen'>
+      <FormCustom title="Register"/>
+    </div>
   )
 }
 

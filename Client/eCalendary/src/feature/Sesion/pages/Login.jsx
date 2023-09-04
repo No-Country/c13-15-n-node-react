@@ -1,9 +1,12 @@
 import React from 'react'
-import { FormCustom } from '../components/Form'
+import FormCustom from '../components/Form/index'
+
 
 const Login = () => {
   return (
-    <div> <FormCustom title='Login' ></FormCustom> </div>
+    <div className='flex justify-center items-center h-screen'>
+      <FormCustom title="Login"/>
+    </div>
   )
 }
 

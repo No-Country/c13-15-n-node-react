@@ -1,6 +1,6 @@
 import React from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
-import { PATH_BUSINESS, PATH_CALENDAR } from "../../routers/routerPaths";
+import { PATH_BUSINESS, PATH_CALENDAR, PATH_LOGIN, PATH_REGISTER } from "../../routers/routerPaths";
 
 const AcmeLogo = () => (
     <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
@@ -40,12 +40,10 @@ export default function NavbarCustom() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Iniciar sesion</Link>
+          <Link href={PATH_LOGIN}>Iniciar sesion</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Registrarse
-          </Button>
+          <Link href={PATH_REGISTER}>Registrarse</Link>
         </NavbarItem>
       </NavbarContent>
     </Navbar>

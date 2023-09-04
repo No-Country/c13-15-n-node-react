@@ -21,9 +21,9 @@ const router = createBrowserRouter([
             {
                 path: PATH_LOGIN,
                 element: 
-                <PrivateRouter>
+                //<PrivateRouter>
                     <Login />
-                </PrivateRouter>
+                //</PrivateRouter>
             },
             {
                 path: PATH_BUSINESS,
