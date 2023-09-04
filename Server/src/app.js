@@ -1,6 +1,6 @@
 //? Dependencies
 const express = require('express')
-const cors = require('cors')
+const cors = require('cors');
 
 //? Files
 const initModels=require('./models/initmodels')
@@ -8,6 +8,9 @@ const config = require('../config')
 const sequelize = require('./utils/connect')
 
 //? Initial Configs
+const sessionRouter = require('./routers/sessionRouter')
+const registroRouter = require('./routers/registroRouter')
+
 
 const app = express()
 //? Enable incoming JSON data
@@ -33,6 +36,10 @@ app.get('/', (req, res) => {
         message: 'API Calendary Ok!',
     })
 })
+
+
+app.use(sessionRouter)
+app.use(registroRouter)
 
 // Routes project
 
