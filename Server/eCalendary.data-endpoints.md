@@ -11,17 +11,17 @@ POST /api/servicios
 	identificador_de_usuario: '<alguna secuencia alfanumérica>',
 	nombre_servicio: "<Nombre del Servicio>",
 	meses: [
-		0, //ENERO
-		1, //FEBRERO
-		3, //ABRIL
+		"ENERO",
+		"FEBRERO",
+		"ABRIL"
 	], 
 	dias: [
-		0, //DOMINGO
-		1, //LUNES
+		"DOMINGO",
+		"LUNES"
 	],
 	horarios: [
-		inicio: '<Formato YYYY-MM-DDThh:mmTZD>',
-		fin: '<Formato YYYY-MM-DDThh:mmTZD>'
+		inicio: <entero>,
+		fin: <entero>
 	],
 	intervalo: <en segundos>
 }
@@ -46,17 +46,17 @@ Las respuesta debería ser
 {
 	nombre_del_servicio: '<nombre del servicio>',
 	meses: [ 
-		0,	// ENERO
-		1,	// FEBRERO
-		3	// ABRIL
+		"ENERO",
+		"FEBRERO",
+		"ABRIL"
 	]
 	dias: [
-		1,	// LUNES
-		2,	// MARTES
-		4	// JUEVES
+		"LUNES",
+		"MARTES",
+		"JUEVES"
 	],
 	horarios: [
-		{ hora: '<Formato HH:mmTZD>', disponible: <true|false> },
+		'<Formato dd-mm-YYYY>',
 		...
 	]
 }
@@ -69,9 +69,8 @@ POST /api/reservas
 	nombre_cliente: '<cadena>',
 	contacto: '<dirección|teléfono|email>',
 	servicio: '<ID del servicio>',
-	fecha: '<Formato YYYY-MM-DD>',
 	horarios: [
-		{ hora: '<Formato HH:mmTZD>', disponible: false },...
+		'<Formato YYYY-mm-dd HH:MM>',...
 	]
 }
 ```
@@ -85,7 +84,7 @@ En caso que exista el servicio y la fecha
 ```javascript
 {
 	[
-		{ hora: '<Formato HH:mmTZD>', disponible: <true|false> }
+		'<Formato HH:MM>'
 		, ...
 	]
 }
