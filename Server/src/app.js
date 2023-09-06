@@ -1,6 +1,7 @@
 //? Dependencies
 const express = require('express')
 const cors = require('cors')
+const jobs_router = require('./routers/ServiceRouter');
 
 //? Files
 const initModels=require('./models/initmodels')
@@ -35,6 +36,7 @@ app.get('/', (req, res) => {
 })
 
 // Routes project
+app.use('/api/servicios', jobs_router );
 
 app.listen(config.api.port, () => {
     console.log(`Server started on ${config.api.host}`)
