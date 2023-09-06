@@ -2,6 +2,7 @@ import React from 'react'
 import {Button, Card, Divider, Input} from "@nextui-org/react";
 import { useForm } from "react-hook-form"
 import axios from 'axios'
+
 // import { getUser } from '../../services/user';
 
 const FormCustom = ({title}) => {
@@ -22,8 +23,9 @@ const FormCustom = ({title}) => {
   const onSubmit = (data) => {
     axios.post(`http://localhost:3000/${ruta}`, data)
       .then((response) => {
-        console.log('Solicitud POST exitosa');
-        console.log(response.data);
+        const token = response.data.token;
+        localStorage.setItem('token', token);
+        window.location.reload();
       })
       .catch((error) => {
         console.error('Error al realizar la solicitud POST:', error);
