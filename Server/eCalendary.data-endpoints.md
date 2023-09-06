@@ -19,10 +19,10 @@ POST /api/servicios
 		"DOMINGO",
 		"LUNES"
 	],
-	horarios: [
+	horarios: {
 		inicio: <entero>,
 		fin: <entero>
-	],
+	},
 	intervalo: <en segundos>
 }
 	 
@@ -35,7 +35,24 @@ Con una operación exitosa debería responder
 	mensaje: "Servicio creado"
 }
 ```
-
+### El usuario recupera el servicio
+```javascript
+GET /api/servicios?servicio_id=<UUID>
+```
+La respuesta debería ser
+```javascript
+{
+	id: <UUID>,
+	nombre_de_servicio: <nombre del servicio>,
+	meses: [ "ENERO", "FEBRERO", "ABRIL" ]
+	dias: [ "LUNES", "MARTES", "JUEVES" ]
+	horarios: {
+		inicio: <entero>,
+		fin: <entero>
+	},
+	enlace: <URL para acceder a los horarios del servicio>
+}
+```
 ### El cliente consulta el calendario desde el enlace
 Una vez el usuario creó el servicio, obtiene un enlace para compartir con sus clientes.  El cliente no realiza la consulta directa al servicio de REST API, lo hace el Front-end.
 ```javascript
