@@ -6,7 +6,8 @@ const cors = require('cors')
 const initModels=require('./models/initmodels')
 const config = require('../config')
 const sequelize = require('./utils/connect')
-
+const userRoutes=require('./routes/userRoutes')
+const authRoutes=require('./authUser/authRoute')
 //? Initial Configs
 
 const app = express()
@@ -35,6 +36,9 @@ app.get('/', (req, res) => {
 })
 
 // Routes project
+
+app.use('/users',userRoutes)
+app.use('/auth',authRoutes)
 
 app.listen(config.api.port, () => {
     console.log(`Server started on ${config.api.host}`)
