@@ -1,5 +1,7 @@
 const { v4: uuidv4 } = require('uuid');
 const JobModel = require('../models/servicioModel');
+const JobScheduled = require('../models/horariosServiciosModel')
+const UserModel   = require('../models/usuarioModel')
 
 const JobsService = class {
    async create(job_data) {

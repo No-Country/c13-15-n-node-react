@@ -10,7 +10,6 @@ const JobController = class {
    }
 
    async create( req, res ) {
-      console.log( `>>>> JSON received: ${req.body}`)
       const {
          identificador_del_usuario
          , nombre_del_servicio
@@ -19,8 +18,6 @@ const JobController = class {
          , horarios
          , intervalo
       } = req.body;
-
-      console.log( ">>>> DATA RECIEVED: ", identificador_del_usuario, nombre_del_servicio, meses, dias, horarios, intervalo );
 
       try {
          const job = await jobs.create({
@@ -39,7 +36,7 @@ const JobController = class {
          })
       } catch (error) {
          console.error( ">> ERROR ON CONTROLLER CREATE", error );
-         res.status(404).json( error )
+         res.status(409).json( error )
       }
 
 
