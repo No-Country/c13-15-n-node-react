@@ -10,18 +10,24 @@ import Register from "../feature/Sesion/pages/Register";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Layout />,
+        element:<PublicRouter>
+                    <Layout />
+                </PublicRouter>,
         errorElement: <p>Error</p>,
 
         children:[
             {
                 index: true,
-                element: <PublicRouter><div>Landing</div></PublicRouter>,
+                element: <div>Landing</div>,
             },
             {
-                path: PATH_BUSINESS,
+                path: PATH_LOGIN,
                 element: 
-                <PrivateRouter><Business /></PrivateRouter>
+                    <Login />
+            },
+            {
+                path: PATH_REGISTER,
+                element: <Register/>
             },
             {
                 path: PATH_CALENDAR,
@@ -30,13 +36,20 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: PATH_REGISTER,
-        element: <PublicRouter><Register/></PublicRouter>
-    },
-    {
-        path: PATH_LOGIN,
-        element: 
-        <PublicRouter><Login /></PublicRouter>
+        path: "/",
+        element:
+                // <PrivateRouter>
+                    <Layout />,
+                // </PrivateRouter>,
+        errorElement: <p>Error</p>,
+
+        children:[
+            {
+                path: PATH_BUSINESS,
+                element: 
+                    <Business />
+            },
+        ]
     },
     {
         path:"*",

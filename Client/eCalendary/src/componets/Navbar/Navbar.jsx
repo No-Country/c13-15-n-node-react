@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useMemo, useState} from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/react";
 import { PATH_BUSINESS, PATH_CALENDAR, PATH_LOGIN, PATH_REGISTER, PATH_HOME } from "../../routers/routerPaths";
 import Logo from './Logo'
 import { useLocation } from 'react-router-dom'
 import {AuthContext} from '../../context/AuthContext'
-
+import { Link } from "react-router-dom";
 
 
 export default function NavbarCustom() {
@@ -27,12 +27,12 @@ export default function NavbarCustom() {
           </Link>
         </NavbarItem> */}
         <NavbarItem isActive>
-          <Link href={PATH_BUSINESS} aria-current="page">
+          <Link to={PATH_BUSINESS} >
             Servicios
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="text-white" href={PATH_CALENDAR} aria-current="page">
+          <Link color="foreground" href={PATH_CALENDAR}>
             Calendario
           </Link>
         </NavbarItem>

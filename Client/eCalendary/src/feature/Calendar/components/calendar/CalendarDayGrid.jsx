@@ -36,12 +36,14 @@ export const CalendarDayGrid = () => {
         days.push(
             <button
                 key={i}
-                className={`p-2 rounded-full ${isDisabledDate(currentDate) ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : ''
-                    } ${currentDate.getDate() === (selectedDate?.getDate() || -1) &&
-                        currentDate.getMonth() === (selectedDate?.getMonth() || -1)
-                        ? 'bg-blue-500 text-white'
-                        : ''
-                    }`}
+                className={`p-2 rounded-full 
+                    ${isDisabledDate(currentDate)
+                        ? 'bg-gray-300 text-gray-600 cursor-not-allowed' 
+                        : 'hover:text-blue-700 hover:bg-blue-200' } 
+                    ${currentDate.getDate() === (selectedDate?.getDate() || -1) &&
+                            currentDate.getMonth() === (selectedDate?.getMonth() || -1)
+                        ? 'bg-blue-500 text-white transition duration-150 hover:bg-blue-500 hover:text-white '
+                        : ' '}`}
                 onClick={() => setSelectedDate(currentDate)}
                 disabled={isDisabledDate(currentDate)}
             >
