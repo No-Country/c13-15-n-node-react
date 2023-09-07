@@ -18,13 +18,13 @@ export const meses = [
 //Dias de la semana
 
 export const dias = [
-  { value: "00", label: "Domingo"},
-  { value: "01", label: "Lunes"},
-  { value: "02", label: "Martes"},
-  { value: "03", label: "Miercoles"},
-  { value: "04", label: "Jueves"},
-  { value: "05", label: "Viernes"},
-  { value: "06", label: "Sabado"},
+  { value: "Domingo", label: "Domingo"},
+  { value: "Lunes", label: "Lunes"},
+  { value: "Martes", label: "Martes"},
+  { value: "Miercoles", label: "Miercoles"},
+  { value: "Jueves", label: "Jueves"},
+  { value: "Viernes", label: "Viernes"},
+  { value: "Sabado", label: "Sabado"},
 ]
 
 //Hora 

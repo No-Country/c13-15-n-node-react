@@ -19,15 +19,15 @@ const Business = () => {
       <h1 className='text-center text-2xl p-8'>Datos del servicio</h1>
       <main className='w-full grid md:grid-cols-2  p-4 gap-8 m-auto '>
         <Input
-          label="Nombre"
-          placeholder="Descripcion"
+          label="Nombre del servicio"
+          placeholder="Peluqueria Pepito"
           className=""
           fullWidth
         />
-        <MySelect lista={meses} titulo="Meses de Año" seleccionMultiple = {true}/>
-        <MySelect lista={dias} titulo="Dias" seleccionMultiple = {true}/>
-        <MySelect lista={Hora} titulo="Hora" seleccionMultiple = {false}/>
-        <MySelect lista={Hora} titulo="Hora" seleccionMultiple = {false}/>
+        <MySelect lista={meses} titulo="Meses de Año laborales" seleccionMultiple = {true}/>
+        <MySelect lista={dias} titulo="Dias laborales a ala semana" seleccionMultiple = {true}/>
+        <MySelect lista={Hora} titulo="Hora de inico del servicio" seleccionMultiple = {false}/>
+        <MySelect lista={Hora} titulo="Hora de cierre del servicio" seleccionMultiple = {false}/>
         <MySelect lista={intervalo} titulo="Intervalo" />
         
         <Button color="primary" className='md:col-span-2' onClick={() => handleSubmit()}>
