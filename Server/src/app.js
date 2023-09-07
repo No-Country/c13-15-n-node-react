@@ -7,7 +7,8 @@ const jobs_router = require('./routers/ServiceRouter');
 const initModels=require('./models/initmodels')
 const config = require('../config')
 const sequelize = require('./utils/connect')
-
+const userRoutes=require('./routes/userRoutes')
+const authRoutes=require('./authUser/authRoute')
 //? Initial Configs
 
 const app = express()
@@ -38,6 +39,10 @@ app.get('/', (req, res) => {
 // Routes project
 app.use('/api/servicios', jobs_router );
 
+app.use('/users',userRoutes)
+app.use('/auth',authRoutes)
+
 app.listen(config.api.port, () => {
     console.log(`Server started on ${config.api.host}`)
 })
+
