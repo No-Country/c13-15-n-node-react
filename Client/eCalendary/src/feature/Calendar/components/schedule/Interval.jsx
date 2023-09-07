@@ -1,3 +1,5 @@
+import { useScheduleStore } from "../../../../store/ScheduleStore";
+
 const Interval = () => {
 
     const [selectedInterval, setSelectedInterval] = useScheduleStore((state) => [state.selectedHours, state.setSelectedHours]);

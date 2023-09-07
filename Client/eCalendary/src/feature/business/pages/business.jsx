@@ -5,7 +5,7 @@ import { Hora, dias, intervalo, meses } from '../../../_mocks_/bussinessMocks'
 
 const Business = () => {
   return (
-    <div className=' '>
+    <div className='  flex flex-col p-4 gap-8'>
       Business
       <Textarea
         label="Nombre"

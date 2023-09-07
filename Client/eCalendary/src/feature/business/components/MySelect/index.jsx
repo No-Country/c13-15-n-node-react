@@ -13,6 +13,7 @@ import style from './style.module.css'
       placeholder={titulo}
       selectionMode = {seleccionMultiple ? "multiple" : "single"}
       className="max-w-xs"
+      fullWidth
     >
       {lista.map((item) => (
         <SelectItem key={item.value} textValue={item.value}>
