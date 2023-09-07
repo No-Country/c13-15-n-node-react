@@ -20,14 +20,13 @@ const JobController = class {
       } = req.body;
 
       try {
-         // VALIDACIÓN DEL TOKEN DEL USUARIO Y 
-         // RECUPERACIÓN DEL ID DEL USUARIO A PARTIR DEL TOKEN
+         const user_id = req.user.id;
          const job = await jobs.create({
             name: nombre_del_servicio
             , init_time: horarios.inicio
             , finish_time: horarios.fin
             , duration: intervalo
-            , userId: identificador_del_usuario
+            , userId: user_id
             , months: meses
             , days: dias
          });
