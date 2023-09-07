@@ -37,7 +37,7 @@ const RenderHours = () => {
                                 }`}
                             disabled={isBusy}
                         >
-                            {formattedHour < 10 ? `0${formattedHour}` : formattedHour.toFixed(2)}
+                            {formattedHour < 10 ? `0${formattedHour.toFixed(2)}` : formattedHour.toFixed(2)}
                         </button>
                     )
                 })
