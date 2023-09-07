@@ -22,7 +22,7 @@ sequelize.authenticate()
     .catch((err) => console.log(err))
 
 //? Sync DataBase Models
-sequelize.sync()
+sequelize.sync( { force: true } )
     .then(() => console.log('Database Synced'))
     .catch(err => console.log(err))
 
