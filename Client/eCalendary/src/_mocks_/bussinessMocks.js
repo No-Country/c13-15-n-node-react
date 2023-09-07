@@ -65,3 +65,19 @@ export const intervalo = [
   { value: "45", label: "45 Min"},
   { value: "60", label: "60 Min"},
 ]
+
+
+// El usuario recupera el servicio
+
+// 🔽 GET /api/servicios?servicio_id=<UUID></UUID>
+export const myBussinesData = {
+	id: "62684321854315",
+	nombre_de_servicio: "Peluqueria Don Juan",
+	meses: [ 9, 10, 11, 12 ],
+	dias: [ 1,2,3,4,5 ],
+	horarios: {
+		inicio: 8,
+		fin: 15
+	},
+	enlace: "http://localhost:5173/calendario/62684321854315"
+}
