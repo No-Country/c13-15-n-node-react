@@ -31,16 +31,16 @@ const router = createBrowserRouter([
             },
             {
                 path: PATH_CALENDAR,
-                element: <PrivateRouter><Calendar/></PrivateRouter>
+                element: <Calendar/>
             },
         ]
     },
     {
         path: "/",
         element:
-                // <PrivateRouter>
+                <PrivateRouter>
                     <Layout />,
-                // </PrivateRouter>,
+                </PrivateRouter>,
         errorElement: <p>Error</p>,
 
         children:[

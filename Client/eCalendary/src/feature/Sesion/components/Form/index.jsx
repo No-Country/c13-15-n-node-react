@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Card, Divider, Input} from "@nextui-org/react";
 import { useForm } from "react-hook-form"
-import axios from 'axios'
+// import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 // import { getUser } from '../../services/user';
@@ -23,15 +23,15 @@ const FormCustom = ({title, ruta}) => {
 
 
   const onSubmit = (data) => {
-    axios.post(ruta, data)
-      .then((response) => {
-        const token = response.data.token;
-        localStorage.setItem('token', token);
-        navigate(response.data.redirect)
-      })
-      .catch((error) => {
-        console.error('Error al realizar la solicitud POST:', error);
-      });
+    // axios.post(ruta, data)
+    //   .then((response) => {
+    //     const token = response.data.token;
+    //     localStorage.setItem('token', token);
+    //     navigate(response.data.redirect)
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error al realizar la solicitud POST:', error);
+    //   });
   }
 
 

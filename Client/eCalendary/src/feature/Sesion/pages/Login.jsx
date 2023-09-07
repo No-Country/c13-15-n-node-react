@@ -6,7 +6,6 @@ import { PATH_LOGIN } from '../../../routers/routerPaths'
 const Login = () => {
   return (
     <>
-      <Navbar/>
       <div className='flex justify-center items-center h-screen'>
         <FormCustom title="Sesion" ruta={`http://localhost:3000/api${PATH_LOGIN}`}/>
       </div>

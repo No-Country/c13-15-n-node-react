@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useMemo, useState} from "react";
+import React, {useContext} from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/react";
 import { PATH_BUSINESS, PATH_CALENDAR, PATH_LOGIN, PATH_REGISTER, PATH_HOME } from "../../routers/routerPaths";
 import Logo from './Logo'
@@ -13,16 +13,16 @@ export default function NavbarCustom() {
   const ruta = location.pathname
 
   return (
-    <Navbar className="bg-gray-900">
+    <Navbar className="bg-gray-900 text-white">
       <NavbarBrand>
         <Logo />
-        <Link href={PATH_HOME}>
+        <Link to={PATH_HOME}>
           <p className="font-bold text-inherit text-white">E-Calendar</p>
         </Link>
         </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {/* <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" to="#">
             Features
           </Link>
         </NavbarItem> */}
@@ -32,24 +32,24 @@ export default function NavbarCustom() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href={PATH_CALENDAR}>
+          <Link color="foreground" to={PATH_CALENDAR}>
             Calendario
           </Link>
         </NavbarItem>
       </NavbarContent>
       {
         logged ? <button onClick={() => logout()} className="text-white">Cerrar sesion</button> :
-          <NavbarContent justify="end">
+          <NavbarContent justify="end" className="text-white">
             {
-              (ruta == '/registro') &&
+              (ruta != PATH_LOGIN ) &&
                 <NavbarItem className="hidden lg:flex">
-                  <Link href={PATH_LOGIN}>Iniciar sesion</Link>
+                  <Link to={PATH_LOGIN}>Iniciar sesion</Link>
                 </NavbarItem>
             }
             {
-              (ruta == '/acceso') &&
+              (ruta != PATH_REGISTER ) &&
                 <NavbarItem>
-                  <Link href={PATH_REGISTER}>Registrarse</Link>
+                  <Link to={PATH_REGISTER}>Registrarse</Link>
                 </NavbarItem>
             }
           </NavbarContent>
