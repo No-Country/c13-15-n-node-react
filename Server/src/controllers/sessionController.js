@@ -24,7 +24,8 @@ const userSession = {
                 const token = jwt.sign(user, secretKey, { expiresIn: '1h' }); 
                 res.send({
                     redirect: '/',
-                    token: token
+                    token: token, 
+                    // user_id: user_id
                 })
             }
         }catch{

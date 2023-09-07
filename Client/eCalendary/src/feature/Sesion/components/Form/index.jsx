@@ -2,14 +2,17 @@ import React from 'react'
 import {Button, Card, Divider, Input} from "@nextui-org/react";
 import { useForm } from "react-hook-form"
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 // import { getUser } from '../../services/user';
 
-const FormCustom = ({title}) => {
+const FormCustom = ({title, ruta}) => {
 
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const navigate = useNavigate()
 
   const {
     register,
@@ -18,14 +21,13 @@ const FormCustom = ({title}) => {
     formState: { errors },
   } = useForm()
 
-  const ruta = title == 'Sesion' ? 'acceso' : 'registro'
 
   const onSubmit = (data) => {
-    axios.post(`http://localhost:3000/${ruta}`, data)
+    axios.post(ruta, data)
       .then((response) => {
         const token = response.data.token;
         localStorage.setItem('token', token);
-        window.location.reload();
+        navigate(response.data.redirect)
       })
       .catch((error) => {
         console.error('Error al realizar la solicitud POST:', error);
