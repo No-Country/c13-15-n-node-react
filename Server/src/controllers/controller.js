@@ -1,5 +1,5 @@
 const controller = {}
-const {name_models} = require('../models/model')
+//const {name_models} = require('../models/model')
 
 
 controller.servicios = (req, res) => {
@@ -49,21 +49,21 @@ controller.reservas = (res, req) => {
     }
 }
 
-controller.peticion_horario = (res, req) => {
-    try{
-        const id = req.params.id
-        findByPk(id)
-            .then((result) => {
-                res.json([result])
-            })
-            .catch((error) => {
-                console.error('Error al obtener los datos de los horarios ', error)
-            })
-    }catch (error){
-        console.error('Error en el servido ', error)
-        res.status(500).json({message: 'Error en el servidor'})
-    }
-}
+// controller.peticion_horario = (res, req) => {
+//     try{
+//         const id = req.params.id
+//         findByPk(id)
+//             .then((result) => {
+//                 res.json([result])
+//             })
+//             .catch((error) => {
+//                 console.error('Error al obtener los datos de los horarios ', error)
+//             })
+//     }catch (error){
+//         console.error('Error en el servido ', error)
+//         res.status(500).json({message: 'Error en el servidor'})
+//     }
+// }
 
 
 module.exports = controller

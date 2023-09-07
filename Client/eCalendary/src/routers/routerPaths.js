@@ -1,4 +1,5 @@
-export const PATH_LOGIN = "/login";
-export const PATH_REGISTER = "/register";
+export const PATH_LOGIN = "/acceso";
+export const PATH_REGISTER = "/registro";
 export const PATH_CALENDAR = "/calendario";
-export const PATH_BUSINESS = "/business";
+export const PATH_BUSINESS = "/negocio";
+export const PATH_HOME = "/";

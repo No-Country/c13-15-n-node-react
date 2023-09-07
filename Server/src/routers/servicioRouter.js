@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+
+const express     = require('express');
+const router      = express.Router();
+const { create_service }   = require('../controllers/servicioService')
+=======
 const express = require('express');
 const router = express.Router();
 const connection     = require('../utils/connect');
 const { JobService } = require('../controllers/servicioService');
+>>>>>>> login
 
 const mapper = (day) => {
    const week_days = {

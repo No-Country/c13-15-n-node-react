@@ -19,28 +19,24 @@ const router = createBrowserRouter([
                 element: <PublicRouter><div>Landing</div></PublicRouter>,
             },
             {
-                path: PATH_LOGIN,
-                element: 
-                <PrivateRouter>
-                    <Login />
-                </PrivateRouter>
-            },
-            {
                 path: PATH_BUSINESS,
                 element: 
-                // <PrivateRouter>
-                    <Business />
-                // </PrivateRouter>
-            },
-            {
-                path: PATH_REGISTER,
-                element: <Register/>
+                <PrivateRouter><Business /></PrivateRouter>
             },
             {
                 path: PATH_CALENDAR,
-                element: <Calendar />
+                element: <PrivateRouter><Calendar/></PrivateRouter>
             },
         ]
+    },
+    {
+        path: PATH_REGISTER,
+        element: <PublicRouter><Register/></PublicRouter>
+    },
+    {
+        path: PATH_LOGIN,
+        element: 
+        <PublicRouter><Login /></PublicRouter>
     },
     {
         path:"*",
