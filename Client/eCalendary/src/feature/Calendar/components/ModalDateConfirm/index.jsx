@@ -18,7 +18,7 @@ const ModalDateConfirm = () => {
     return (
         <div>
             <Button onPress={onOpen} color="primary" 
-                variant={ toggleButtonMode ? "shadow" : "ghost" }
+                variant={ toggleButtonMode ? "shadow" : "flat" }
                 isDisabled={!toggleButtonMode}
             >
                 Reservar espacio

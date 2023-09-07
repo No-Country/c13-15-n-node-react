@@ -12,7 +12,6 @@ const CalendarCustom = () => {
 
             <CalendarHeader />
             <div className="mt-4">
-
                 <WeekHeader />
                 <CalendarDayGrid />
                 <CalendarFooter />

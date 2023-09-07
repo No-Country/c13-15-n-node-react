@@ -33,7 +33,12 @@ const RenderHours = () => {
                         <button
                             key={formattedHour}
                             onClick={() => handleHourClick(formattedHour)}
-                            className={`p-2 rounded-full ${isBusy ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : selectedHours.includes(formattedHour) ? 'bg-blue-500 text-white' : ''
+                            className={`p-2 rounded-full 
+                                ${isBusy 
+                                    ? 'bg-gray-300 text-gray-600 cursor-not-allowed ' 
+                                    : selectedHours.includes(formattedHour) 
+                                        ? ' bg-blue-500 text-white  transition duration-150 ' 
+                                        : 'hover:bg-blue-200 hover:text-blue-700 transition duration-150 '
                                 }`}
                             disabled={isBusy}
                         >

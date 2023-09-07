@@ -1,7 +1,7 @@
 import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem,  Button} from "@nextui-org/react";
 import { PATH_BUSINESS, PATH_CALENDAR } from "../../routers/routerPaths";
-
+import { Link } from "react-router-dom";
 const AcmeLogo = () => (
     <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
       <path
@@ -28,12 +28,12 @@ export default function NavbarCustom() {
           </Link>
         </NavbarItem> */}
         <NavbarItem isActive>
-          <Link href={PATH_BUSINESS} aria-current="page">
+          <Link to={PATH_BUSINESS} >
             Servicios
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href={PATH_CALENDAR}>
+          <Link to={PATH_CALENDAR}>
             Calendario
           </Link>
         </NavbarItem>
