@@ -93,4 +93,74 @@ describe('DaysGenerator', function () {
             })
         })
     });
+
+    [
+        {
+            months: {
+                1: { name: 'septiembre', index: 9 }
+                , 2: { name: 'octubre', index: 10 }
+                , 3: { name: 'noviembre', index: 11 }
+            }
+            , days: {
+                1: { name: 'lunes', wday: 0 }
+                , 2: { name: 'martes', wday: 1 }
+                , 3: { name: 'jueves', wday: 3 }
+            }
+            , days_expected: [
+                new Date("2023-09-04"),
+                new Date("2023-09-05"),
+                new Date("2023-09-07"),
+                new Date("2023-09-11"),
+                new Date("2023-09-12"),
+                new Date("2023-09-14"),
+                new Date("2023-09-18"),
+                new Date("2023-09-19"),
+                new Date("2023-09-21"),
+                new Date("2023-09-25"),
+                new Date("2023-09-26"),
+                new Date("2023-09-28"),
+                new Date("2023-10-02"),
+                new Date("2023-10-03"),
+                new Date("2023-10-05"),
+                new Date("2023-10-09"),
+                new Date("2023-10-10"),
+                new Date("2023-10-12"),
+                new Date("2023-10-16"),
+                new Date("2023-10-17"),
+                new Date("2023-10-19"),
+                new Date("2023-10-23"),
+                new Date("2023-10-24"),
+                new Date("2023-10-26"),
+                new Date("2023-10-30"),
+                new Date("2023-10-31"),
+                new Date("2023-11-02"),
+                new Date("2023-11-06"),
+                new Date("2023-11-07"),
+                new Date("2023-11-09"),
+                new Date("2023-11-13"),
+                new Date("2023-11-14"),
+                new Date("2023-11-16"),
+                new Date("2023-11-20"),
+                new Date("2023-11-21"),
+                new Date("2023-11-23"),
+                new Date("2023-11-27"),
+                new Date("2023-11-28"),
+                new Date("2023-11-30")
+                
+            ]
+        }
+    ].forEach(function (params) {
+        describe(`cuando se le pasa los meses de ${params.months[1].name}, ${params.months[2].name} y ${params.months[3].name}`, function () {
+            describe(`y se le pasa los días ${params.days[1].name}, ${params.days[2].name} y ${params.days[3].name}`, function () {
+                it('debería retornar una lista con los martes y viernes de agosto y septiembre', function () {
+                
+                    const days = generate_days_from({
+                        months: [params.months[1].index, params.months[2].index, params.months[3].index]
+                        , days: [ params.days[1].wday, params.days[2].wday, params.days[3].wday ] })
+
+                    expect(days).to.eql(params.days_expected);
+                })
+            })
+        })
+    });
 })
