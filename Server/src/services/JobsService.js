@@ -24,7 +24,7 @@ const JobsService = class {
             const schedule = await ScheduleModel.create({
                schedule_id: uuidv4(), schedule: element
             })
-            job.addSchedule( schedule, { though: { available: false } } );
+            await job.addSchedule( schedule, { though: { available: false } } );
             console.log( ">> Fecha programada: ", schedule.schedule );
          });
          /**/
