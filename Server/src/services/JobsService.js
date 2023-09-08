@@ -41,6 +41,13 @@ const JobsService = class {
    }
 
    async list_all(params = {}) {
+      const job = await JobModel.findOne( {
+         where: {
+            userId: params.user_id
+         }
+      })
+
+      console.log( job );
       return "lista de servicios";
    }
 }

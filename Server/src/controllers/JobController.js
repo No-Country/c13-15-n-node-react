@@ -3,7 +3,8 @@ const jobs = require('../services/JobsService.js');
 
 const JobController = class {
    async listing( req, res ) {
-      const jobs_list = jobs.list_all();
+      const user_id = req.user.id 
+      const jobs_list = await jobs.list_all( { user_id: user_id });
       res.json({
          jobs_list
       })
