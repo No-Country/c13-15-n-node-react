@@ -7,7 +7,6 @@ const ScheduleModel        = require('../models/horarioModel');
 
 const JobsService = class {
    async create(job_data) {
-      console.log(`>> Job create with: ${job_data}`)
       try {
          const job = await JobModel.create({
             service_id: uuidv4()
@@ -25,7 +24,7 @@ const JobsService = class {
                schedule_id: uuidv4(), schedule: element
             })
             await job.addSchedule( schedule, { though: { available: false } } );
-            console.log( ">> Fecha programada: ", schedule.schedule );
+            console.log( ">> Fecha programada: ", schedule.schedule, schedule.available );
          });
          /**/
 
