@@ -6,8 +6,10 @@ const Schedules = sequelize.define('schedules', {
       type: DataTypes.UUID,
       primaryKey: true,
       allowNull: false
-   }, schedule: {
-      type: DataTypes.DATE, allowNull: false
+   }, 
+   schedule: {
+      type: DataTypes.DATE, 
+      allowNull: false
    }
 });
 

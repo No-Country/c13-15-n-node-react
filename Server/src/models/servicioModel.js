@@ -11,10 +11,20 @@ const Services = sequelize.define('services', {
       type: DataTypes.STRING,
       allowNull: false
    },
+   init_time: {
+      type: DataTypes.INTEGER, 
+      defaultValue: 8
+   },
+   finish_time: {
+      type: DataTypes.INTEGER, 
+      defaultValue: 16
+   },
    duration: {
       type: DataTypes.INTEGER,
-      default: 15
+      defaultValue: 60
    }
-}, { timestamp: false });
+    
+}, 
+{ timestamp: false });
 
 module.exports = Services;
