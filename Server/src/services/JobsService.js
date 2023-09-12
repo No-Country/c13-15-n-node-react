@@ -15,8 +15,13 @@ const JobsService = class {
          , include: ScheduleModel
       })
 
-      const schedules = await job.getSchedules();
+      if (job === undefined) {
+         return {
+            message: "El servicio solicitado no se encontró"
+         }
+      }
 
+      const schedules = await job.getSchedules();
       // Genero un array con las fechas del servicio encontrado
       const dates = schedules.reduce( (dates, date) => {
          dates.push( date.schedule );
