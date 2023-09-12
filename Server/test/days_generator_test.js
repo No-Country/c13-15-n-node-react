@@ -35,7 +35,7 @@ describe('DaysGenerator', function () {
             ]
         }
     ].forEach(function (params) {
-        context.only(`cuando se le pasa ${params.months[0]} y los días ${params.days[0]} y ${params.days[1]}`, function () {
+        context(`cuando se le pasa ${params.months[0]} y los días ${params.days[0]} y ${params.days[1]}`, function () {
             it(`debería generar una lista con la fecha de todos los ${params.days[0]} y ${params.days[1]} de agosto`, function () {
 
                 const days = generate_days_from({
@@ -72,7 +72,7 @@ describe('DaysGenerator', function () {
             ]
         }
     ].forEach(function (params) {
-        describe.only(`cuando se le pasa los meses de ${params.months[0]} y ${params.months[1]}`, function () {
+        describe(`cuando se le pasa los meses de ${params.months[0]} y ${params.months[1]}`, function () {
             describe(`y se le pasa los días ${params.days[0]} y ${params.days[1]}`, function () {
                 it('debería retornar una lista con los martes y viernes de agosto y septiembre', function () {
                 
@@ -135,7 +135,7 @@ describe('DaysGenerator', function () {
             ]
         }
     ].forEach(function (params) {
-        describe.only(`cuando se le pasa los meses de ${params.months[0]}, ${params.months[1]} y ${params.months[2]}`, function () {
+        describe(`cuando se le pasa los meses de ${params.months[0]}, ${params.months[1]} y ${params.months[2]}`, function () {
             describe(`y se le pasa los días ${params.days[0]}, ${params.days[1]} y ${params.days[2]}`, function () {
                 it('debería retornar una lista con los martes y viernes de agosto y septiembre', function () {
                 

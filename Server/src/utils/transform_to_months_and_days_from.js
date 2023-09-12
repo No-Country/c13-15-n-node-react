@@ -16,7 +16,7 @@ module.exports = function( dates ) {
    }, [] )
 
    return {
-      months: new Set( months )
-      , days: new Set( week_days )
+      months: Array.from( new Set( months ) )
+      , wdays: Array.from( new Set( week_days ) )
    }
 }
