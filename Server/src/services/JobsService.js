@@ -1,11 +1,34 @@
-const { v4: uuidv4 }       = require('uuid');
-const generate_days_from   = require('../utils/days_generator');
-const JobModel             = require('../models/servicioModel');
-const JobScheduled         = require('../models/horariosServicioModel')
-const UserModel            = require('../models/usuarioModel')
-const ScheduleModel        = require('../models/horarioModel');
+const { v4: uuidv4 }                      = require('uuid');
+const generate_days_from                  = require('../utils/days_generator');
+const transform_to_months_and_days_from   = require('../utils/transform_to_months_and_days_from');
+const JobModel                            = require('../models/servicioModel');
+const JobScheduled                        = require('../models/horariosServicioModel')
+const UserModel                           = require('../models/usuarioModel')
+const ScheduleModel                       = require('../models/horarioModel');
 
 const JobsService = class {
+   async list_all(params = {}) {
+      const job = await JobModel.findOne({
+         where: {
+            userId: params.user_id
+         }
+         , include: ScheduleModel
+      })
+
+      const schedules = await job.getSchedules();
+
+      // Genero un array con las fechas del servicio encontrado
+      const dates = schedules.reduce( (dates, date) => {
+         dates.push( date.schedule );
+         return dates;
+      }, [] );
+
+      const { months, days } = transform_to_months_and_days_from( dates );
+      return {
+         job, months, days
+      };
+   }
+
    async create(job_data) {
       try {
          const job = await JobModel.create({
@@ -14,6 +37,7 @@ const JobsService = class {
             , init_time: job_data.init_time
             , finish_time: job_data.finish_time
             , duration: job_data.duration
+            , userId: job_data.userId
          });
 
          const days_schedules = generate_days_from( {
@@ -23,10 +47,8 @@ const JobsService = class {
             const schedule = await ScheduleModel.create({
                schedule_id: uuidv4(), schedule: element
             })
-            await job.addSchedule( schedule, { though: { available: false } } );
-            console.log( ">> Fecha programada: ", schedule.schedule, schedule.available );
+            await job.addSchedule( schedule );
          });
-         /**/
 
          return job;
       } catch (error) {
@@ -38,17 +60,6 @@ const JobsService = class {
             throw { code: -1, message: `DESCONOCIDO - ${error}` }
          }
       }
-   }
-
-   async list_all(params = {}) {
-      const job = await JobModel.findOne( {
-         where: {
-            userId: params.user_id
-         }
-      })
-
-      console.log( job );
-      return "lista de servicios";
    }
 }
 

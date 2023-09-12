@@ -4,9 +4,18 @@ const jobs = require('../services/JobsService.js');
 const JobController = class {
    async listing( req, res ) {
       const user_id = req.user.id 
-      const jobs_list = await jobs.list_all( { user_id: user_id });
+      const { job, months, days } = await jobs.list_all( { user_id: user_id });
+      console.log( ">> CONTROLLER", months, job.id );
       res.json({
-         jobs_list
+         id: job.service_id
+         , nombre_del_servicio: job.name
+         , meses: Array.from( months )
+         , dias: Array.from( days )
+         , horarios: {
+            inicio: job.init_time
+            , fin: job.finish_time
+         }
+         , enlace: `${HOST}calendarios?service_id=${job.service_id}`
       })
    }
 
