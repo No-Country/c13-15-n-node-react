@@ -15,23 +15,29 @@ const JobsService = class {
          , include: ScheduleModel
       })
 
-      if (job === undefined) {
+      if (!job) {
+         console.log(">> JOB =", job)
+         throw new Object({name: 'JobNotFound', message: 'Servicio no encontrado'})
+      }
+      
+      try {
+         const schedules = await job.getSchedules();
+         // Genero un array con las fechas del servicio encontrado
+         const dates = schedules.reduce((dates, date) => {
+            dates.push(date.schedule);
+            return dates;
+         }, []);
+
+         const { months, days } = transform_to_months_and_days_from(dates);
          return {
-            message: "El servicio solicitado no se encontró"
+            job, months, days
+         };
+      } catch (error) {
+         if( 'TypeError' === error.name){
+            console.log(">>", error);
+            throw { name: 'JobNoFound', message: 'Servicio no encontrado' };
          }
       }
-
-      const schedules = await job.getSchedules();
-      // Genero un array con las fechas del servicio encontrado
-      const dates = schedules.reduce( (dates, date) => {
-         dates.push( date.schedule );
-         return dates;
-      }, [] );
-
-      const { months, days } = transform_to_months_and_days_from( dates );
-      return {
-         job, months, days
-      };
    }
 
    async create(job_data) {
@@ -45,22 +51,22 @@ const JobsService = class {
             , userId: job_data.userId
          });
 
-         const days_schedules = generate_days_from( {
+         const days_schedules = generate_days_from({
             "months": job_data.months,
             "days": job_data.days
-         }).forEach( async element => {
+         }).forEach(async element => {
             const schedule = await ScheduleModel.create({
                schedule_id: uuidv4(), schedule: element
             })
-            await job.addSchedule( schedule );
+            await job.addSchedule(schedule);
          });
 
          return job;
       } catch (error) {
-         if( error.name === 'SequelizeUniqueConstraintError' ) {
+         if (error.name === 'SequelizeUniqueConstraintError') {
             throw { code: 1, message: `${job_data.name} ya existe` }
-         } else if( error.name === 'SequelizeValidationError') {
-            throw { code: 2, message: `Error al validar los datos: ${error}`}
+         } else if (error.name === 'SequelizeValidationError') {
+            throw { code: 2, message: `Error al validar los datos: ${error}` }
          } else {
             throw { code: -1, message: `DESCONOCIDO - ${error}` }
          }

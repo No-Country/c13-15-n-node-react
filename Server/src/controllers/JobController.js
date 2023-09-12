@@ -3,20 +3,28 @@ const jobs = require('../services/JobsService.js');
 
 const JobController = class {
    async listing( req, res ) {
-      const user_id = req.user.id 
-      const { job, months, days } = await jobs.list_all( { user_id: user_id });
-      console.log( ">> CONTROLLER", months, job.id );
-      res.json({
-         id: job.service_id
-         , nombre_del_servicio: job.name
-         , meses: Array.from( months )
-         , dias: Array.from( days )
-         , horarios: {
-            inicio: job.init_time
-            , fin: job.finish_time
+      try {
+         const user_id = req.user.id
+         const { job, months, days } = await jobs.list_all({ user_id: user_id });
+         console.log(">> CONTROLLER", months, job.id);
+         res.json({
+            id: job.service_id
+            , nombre_del_servicio: job.name
+            , meses: Array.from(months)
+            , dias: Array.from(days)
+            , horarios: {
+               inicio: job.init_time
+               , fin: job.finish_time
+            }
+            , enlace: `${HOST}calendarios?service_id=${job.service_id}`
+         })
+      } catch (error) {
+         if (error.name === 'JobNotFound') {
+            res.status(404).json({message: "No tienes ni un servicio creado"})
+         } else {
+            res.status(503).json({message: error })
          }
-         , enlace: `${HOST}calendarios?service_id=${job.service_id}`
-      })
+      }
    }
 
    async create( req, res ) {
