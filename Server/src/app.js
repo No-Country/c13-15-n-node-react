@@ -8,7 +8,8 @@ const initModels=require('./models/initmodels')
 const config = require('../config')
 const sequelize = require('./utils/connect')
 const userRoutes=require('./routes/userRoutes')
-const authRoutes=require('./authUser/authRoute')
+const authRoutes=require('./authUser/authRoute');
+const calendary_router = require('./routers/CalendaryRouter');
 //? Initial Configs
 
 const app = express()
@@ -38,7 +39,7 @@ app.get('/', (req, res) => {
 
 // Routes project
 app.use('/api/servicios', jobs_router );
-
+app.use('/api/calendarios', calendary_router );
 app.use('/users',userRoutes)
 app.use('/auth',authRoutes)
 
