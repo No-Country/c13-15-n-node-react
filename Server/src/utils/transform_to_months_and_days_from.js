@@ -2,7 +2,7 @@
  * Transformo el array de las fechas en un objeto con los meses
  * y los días de la semana de las fechas
 */
-const transform_to_months_and_days_from = function( dates ) {
+module.exports = function( dates ) {
    const months = dates.reduce( (result, date) => {
       const d = new Date( Date.parse(date)+3*3600*1000 );
       result.push( d.getMonth()+1 )
