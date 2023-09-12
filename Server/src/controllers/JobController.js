@@ -41,9 +41,37 @@ const JobController = class {
          console.error( ">> ERROR ON CONTROLLER CREATE", error );
          res.status(409).json( error )
       }
-
-
    }
+
+   async getCalendary(req,res){
+      const serviceId = req.query.service_id
+      const {job,dates}= await jobs.getJobCalendary(serviceId)
+      try{ 
+         if({job,dates}){
+         res.status(200).json({
+            jobName:job.name, 
+            calendary:{
+               months:Array.from(dates.months),
+               days:Array.from(dates.days)
+            }
+         
+         })
+      }
+      else{
+         res.status(404).json({
+            message:"Invalid ID"
+         })
+         }
+      }catch(err){
+         res.status(400).json({
+            message:err.message
+         })
+      }
+
 }
+}
+      
+ 
+
 
 module.exports = new JobController();

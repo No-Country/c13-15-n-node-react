@@ -2,6 +2,7 @@ const { v4: uuidv4 }       = require('uuid');
 const generate_days_from   = require('../utils/days_generator');
 const JobModel             = require('../models/servicioModel');
 const ScheduleModel        = require('../models/horarioModel');
+const transform_to_months_and_days_from = require('../utils/transform_to_months_and_days_from');
 
 const JobsService = class {
 
@@ -51,7 +52,28 @@ const JobsService = class {
       console.log( job );
       return "lista de servicios";
    }
+
+   async getJobCalendary(serviceId){
+      const schedulesJob= await JobModel.findAll({
+         where:{
+            service_id:serviceId
+         },
+         include:{
+         model:ScheduleModel,
+         attributes:{
+            exclude:["createdAt","updatedAt"]
+         }
+         }
+      })
+      const datesJob=schedulesJob[0].schedules.map(data=>data.schedule)
+      return {
+         job:schedulesJob[0],
+         dates:transform_to_months_and_days_from(datesJob)
+      }
+      
+   }
 }
+
 
 
 module.exports = new JobsService();
