@@ -5,13 +5,13 @@ const JobController = class {
    async listing( req, res ) {
       try {
          const user_id = req.user.id
-         const { job, months, days } = await jobs.list_all({ user_id: user_id });
-         console.log(">> CONTROLLER", months, job.id);
+         const { job, months, wdays } = await jobs.list_all({ user_id: user_id });
+         console.log(">> CONTROLLER", months, wdays, job.id);
          res.json({
             id: job.service_id
             , nombre_del_servicio: job.name
-            , meses: Array.from(months)
-            , dias: Array.from(days)
+            , meses: months
+            , dias: wdays
             , horarios: {
                inicio: job.init_time
                , fin: job.finish_time
@@ -58,6 +58,33 @@ const JobController = class {
          res.status(409).json( error )
       }
 
+
+   }
+
+   async getCalendary(req, res) {
+      const serviceId = req.query.service_id
+      const { job, dates } = await jobs.getJobCalendary(serviceId)
+      try {
+         if ({ job, dates }) {
+            res.status(200).json({
+               jobName: job.name,
+               calendary: {
+                  months: dates.months,
+                  days: dates.wdays
+               }
+
+            })
+         }
+         else {
+            res.status(404).json({
+               message: "Invalid ID"
+            })
+         }
+      } catch (err) {
+         res.status(400).json({
+            message: err.message
+         })
+      }
 
    }
 }

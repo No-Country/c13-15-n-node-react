@@ -28,9 +28,9 @@ const JobsService = class {
             return dates;
          }, []);
 
-         const { months, days } = transform_to_months_and_days_from(dates);
+         const { months, wdays } = transform_to_months_and_days_from(dates);
          return {
-            job, months, days
+            job, months, wdays
          };
       } catch (error) {
          if( 'TypeError' === error.name){
@@ -71,6 +71,26 @@ const JobsService = class {
             throw { code: -1, message: `DESCONOCIDO - ${error}` }
          }
       }
+   }
+
+   async getJobCalendary(serviceId){
+      const schedulesJob= await JobModel.findAll({
+         where:{
+            service_id:serviceId
+         },
+         include:{
+         model:ScheduleModel,
+         attributes:{
+            exclude:["createdAt","updatedAt"]
+         }
+         }
+      })
+      const datesJob=schedulesJob[0].schedules.map(data=>data.schedule)
+      return {
+         job:schedulesJob[0],
+         dates:transform_to_months_and_days_from(datesJob)
+      }
+      
    }
 }
 
