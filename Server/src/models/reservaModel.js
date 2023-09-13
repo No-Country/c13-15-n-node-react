@@ -19,6 +19,10 @@ const ReservationModel = sequelize.define( 'reservas', {
    phone: {
       type: DataTypes.STRING
       , allowNull: false
+   },
+   schedules: {
+      type: DataTypes.STRING
+      , allowNull: false
    }
 });
 
