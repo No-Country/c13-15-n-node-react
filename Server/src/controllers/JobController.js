@@ -16,7 +16,7 @@ const JobController = class {
                inicio: job.init_time
                , fin: job.finish_time
             }
-            , enlace: `${HOST}/api/calendarios?service_id=${job.service_id}`
+            , enlace: `${HOST}api/calendarios?service_id=${job.service_id}`
          })
       } catch (error) {
          if (error.name === 'JobNotFound') {
