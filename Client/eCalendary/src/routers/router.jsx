@@ -38,9 +38,9 @@ const router = createBrowserRouter([
     {
         path: "/",
         element:
-                <PrivateRouter>
+                // <PrivateRouter>
                     <Layout />,
-                </PrivateRouter>,
+                // </PrivateRouter>,
         errorElement: <p>Error</p>,
 
         children:[
