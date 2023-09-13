@@ -17,3 +17,17 @@ export const toInputDate = (date) =>{
 
     return ano+"-"+mes+"-"+dia;
 }
+
+
+export const formattedDailySchedules = ( date , schedules) => {
+
+  if (schedules) {
+      const newSchedules = schedules.map((schedule) => {
+        const newSchedule = new Date(date)
+        newSchedule.setHours(schedule,0,0,0)
+        return newSchedule
+      })
+      return newSchedules
+  }
+}
+
