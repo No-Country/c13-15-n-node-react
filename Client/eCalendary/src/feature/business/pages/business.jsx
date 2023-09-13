@@ -1,10 +1,11 @@
-import React from 'react'
+import axios from 'axios'
 import { Button, Input } from '@nextui-org/react'
 import MySelect from '../components/MySelect'
 import { Hora, dias, intervalo, meses } from '../../../_mocks_/bussinessMocks'
 import { useNavigate } from "react-router-dom";
 import { PATH_CALENDAR } from '../../../routers/routerPaths';
-import { FormProvider, useForm } from 'react-hook-form'
+import { PATH_API_SERVICIO , PATH_API_GET_SERVICIO} from '../../../routers/routerApi';
+import { FormProvider, useForm} from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from './schemas/business-schema';
 import { formValidation } from '../../../componets/ErrorMessage';
@@ -17,17 +18,17 @@ const Business = () => {
 
     const formMethods = useForm({
         defaultValues: {
-            servicio: '',
+            nombre_del_servicio: '',
             meses: '',
             dias: '',
-            hora_ini: '',
-            hora_fin: '',
+            inicio: '',
+            fin: '',
             intervalo: '',
         },
         mode: "onChange",
         resolver: yupResolver(schema)
     })
-
+    
     const {
         register,
         handleSubmit,
@@ -35,18 +36,37 @@ const Business = () => {
         formState: { isDirty, isValid, errors },
         reset
     } = formMethods;
-
-    // console.log({ errors });
+    
+    console.log({ errors });
 
     const onSubmit = async (data) => {
-
         if (data) {
-            console.log(mapDataToSend(data));
+            const dataParse = mapDataToSend(data);
+            console.log(data)
+            console.log(dataParse)
+            const token = localStorage.getItem("token")
+            console.log(token)
+            axios.post(PATH_API_SERVICIO, dataParse, {
+                'headers': {
+                    Authorization: `JWT ${token}`
+            }
+            })
+                .then((response) => {
+                    console.log('Es la data recibida ',{response})
+                })
+                .catch(error => {
+                    console.log('Error al hacer la peticion', error)
+                })
+            navigate(PATH_CALENDAR)
         }
-        // navigate(PATH_CALENDAR)
         reset();
     }
 
+    const getData = async () => {
+        const pintar = await axios.get(PATH_API_GET_SERVICIO + '01d32f3c-40da-4db8-a154-c006845f8399')
+        console.log({pintar})
+    }
+    getData()
 
     return (
         <div className='  flex flex-col w-full min-h-screen justify-center '>
@@ -61,18 +81,18 @@ const Business = () => {
                     className='w-full grid md:grid-cols-2  p-4 gap-8 m-auto'>
 
                     <Input
+                        {...register("nombre_del_servicio")}
                         label="Nombre del servicio"
                         placeholder="Peluqueria Pepito"
                         labelPlacement="outside"
                         className=""
                         fullWidth
-                        {...register("servicio")}
-                        errorMessage={formValidation(errors, "servicio")}
+                        errorMessage={formValidation(errors, "nombre_del_servicio")}
                     />
                     <MySelect name="meses"    lista={meses} titulo="Meses de Año laborales" seleccionMultiple={true}     />
                     <MySelect name="dias"     lista={dias} titulo="Dias laborales a ala semana" seleccionMultiple={true} />
-                    <MySelect name="hora_ini" lista={Hora} titulo="Hora de inico del servicio" seleccionMultiple={false} />
-                    <MySelect name="hora_fin" lista={Hora} titulo="Hora de cierre del servicio" seleccionMultiple={false} />
+                    <MySelect name="inicio" lista={Hora} titulo="Hora de inico del servicio" seleccionMultiple={false} />
+                    <MySelect name="fin" lista={Hora} titulo="Hora de cierre del servicio" seleccionMultiple={false} />
                     <MySelect name="intervalo" lista={intervalo} titulo="Intervalo" />
 
                     <Button 

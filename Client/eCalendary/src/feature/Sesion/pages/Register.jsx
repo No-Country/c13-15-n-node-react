@@ -1,16 +1,12 @@
-import React from 'react'
 import FormCustom from '../components/Form/index'
-import Navbar from '../../../componets/Navbar/Navbar'
-import { PATH_REGISTER } from '../../../routers/routerPaths'
+import { PATH_API_REGISTER } from '../../../routers/routerApi'
 
 
 const Register = () => {
   return (
-    <>
-      <div className='flex justify-center items-center h-screen'>
-        <FormCustom title="Registro" ruta={`http://localhost:3000/api${PATH_REGISTER}`}/>
-      </div>
-    </>
+    <div className='flex justify-center items-center h-screen'>
+      <FormCustom title="Registro" ruta={PATH_API_REGISTER}/>
+    </div>
   )
 }
 
