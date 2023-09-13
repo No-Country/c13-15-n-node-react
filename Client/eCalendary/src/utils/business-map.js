@@ -9,10 +9,17 @@ const coma = ",";
 // servicio: "Peluqueria Don Juan"
 
 
+
+//parsear los datos en minuscula
+
 export const mapDataToSend = (data) => {
     if (data) {
         data.dias = data.dias.split(",")
         data.meses = data.meses.split(",")
-        return data
+        const horarios = {
+            inicio: data.inicio,
+            fin: data.fin
+        }
+        return {...data, horarios}
     }
 }
