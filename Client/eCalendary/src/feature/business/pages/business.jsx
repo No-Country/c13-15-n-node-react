@@ -62,8 +62,10 @@ const Business = () => {
     }
 
     const getData = async () => {
-        const pintar = await axios.get(PATH_API_GET_SERVICIO + id_servicio)
+        const pintar = await axios.get(PATH_API_GET_SERVICIO + '01d32f3c-40da-4db8-a154-c006845f8399')
+        console.log({pintar})
     }
+    getData()
 
     return (
         <div className='  flex flex-col w-full  '>
