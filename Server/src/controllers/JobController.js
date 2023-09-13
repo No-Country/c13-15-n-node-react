@@ -16,7 +16,7 @@ const JobController = class {
                inicio: job.init_time
                , fin: job.finish_time
             }
-            , enlace: `${HOST}calendarios?service_id=${job.service_id}`
+            , enlace: `${HOST}api/calendarios?service_id=${job.service_id}`
          })
       } catch (error) {
          if (error.name === 'JobNotFound') {
@@ -50,7 +50,7 @@ const JobController = class {
          });
          res.status(201).json({
             identificador: job.service_id
-            , enlace: `${HOST}api/calendarios?servicio_id=${job.service_id}`
+            , enlace: `${HOST}api/calendarios?service_id=${job.service_id}`
             , mensaje: "Se creó con éxito el servicio"
          })
       } catch (error) {
