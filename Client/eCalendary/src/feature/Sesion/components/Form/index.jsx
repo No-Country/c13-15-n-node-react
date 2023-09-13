@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import {Button, Card, Divider, Input} from "@nextui-org/react";
 import { useForm } from "react-hook-form"
 import { PATH_HOME } from '../../../../routers/routerPaths'
+import { PATH_API_LOGIN } from '../../../../routers/routerApi'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../../../context/AuthContext';
@@ -26,18 +27,30 @@ const FormCustom = ({title, ruta}) => {
   } = useForm()
 
 
+
   const onSubmit = (data) => {
-    axios.post(ruta, data)
-      .then((response) => {
-        const token = response.data.token;
-        console.log('Esto es registro ',{response})
-        localStorage.setItem('token', token);
-        login()
-        navigate(PATH_HOME)
-      })
-      .catch((error) => {
-        console.error('Error al realizar la solicitud POST:', error);
-      });
+    (title == 'Registro')
+      ? axios.post(ruta, data)
+        .then((response )=> {
+          navigate(PATH_HOME)
+          return axios.post(PATH_API_LOGIN, data)
+          .then((response) => {
+                const token = response.data.token;
+                localStorage.setItem('token', token);
+                login()
+                navigate(PATH_HOME)
+              })
+        })
+      :  axios.post(ruta, data)
+          .then((response) => {
+            const token = response.data.token;
+            localStorage.setItem('token', token);
+            login()
+            navigate(PATH_HOME)
+          })
+    .catch((error) => {
+      console.error('Error al realizar la solicitud POST:', error);
+    });
   }
 
 
