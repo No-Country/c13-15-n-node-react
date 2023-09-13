@@ -4,7 +4,8 @@ import { AuthContext } from '../context/AuthContext'
 
 export const PublicRouter = ({ children }) => {
     const { logged } = useContext(AuthContext)
-    return (!logged) ?
+    console.log('logeado', logged)
+    return (logged) ?
         children
-        : <Navigate to="/" />
+        : null
 }

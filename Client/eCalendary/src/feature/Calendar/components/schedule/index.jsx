@@ -9,7 +9,7 @@ const TimePicker = () => {
   return (
     <div className="w-full max-w-md mx-auto p-4">
       <div className="mb-4">
-        <label className="text-lg font-semibold ">Seleccionar horarios:</label>
+        <label className="text-lg block font-semibold pb-4">Seleccionar horarios:</label>
         <RenderHours/>
       </div>
       <div className='min-h-unit-20'>

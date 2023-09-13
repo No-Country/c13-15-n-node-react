@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Button, Card, Divider, Input} from "@nextui-org/react";
 import { useForm } from "react-hook-form"
-// import axios from 'axios'
+import { PATH_HOME } from '../../../../routers/routerPaths'
+import { PATH_API_LOGIN } from '../../../../routers/routerApi'
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../../../context/AuthContext';
 
 // import { getUser } from '../../services/user';
 
 const FormCustom = ({title, ruta}) => {
+  const { login } = useContext(AuthContext)
 
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   const navigate = useNavigate()
+
 
   const {
     register,
@@ -22,32 +27,49 @@ const FormCustom = ({title, ruta}) => {
   } = useForm()
 
 
+
   const onSubmit = (data) => {
-    // axios.post(ruta, data)
-    //   .then((response) => {
-    //     const token = response.data.token;
-    //     localStorage.setItem('token', token);
-    //     navigate(response.data.redirect)
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error al realizar la solicitud POST:', error);
-    //   });
+    (title == 'Registro')
+      ? axios.post(ruta, data)
+        .then((response )=> {
+          navigate(PATH_HOME)
+          return axios.post(PATH_API_LOGIN, data)
+          .then((response) => {
+                const token = response.data.token;
+                localStorage.setItem('token', token);
+                login()
+                navigate(PATH_HOME)
+              })
+        })
+      :  axios.post(ruta, data)
+          .then((response) => {
+            const token = response.data.token;
+            localStorage.setItem('token', token);
+            login()
+            navigate(PATH_HOME)
+          })
+    .catch((error) => {
+      console.error('Error al realizar la solicitud POST:', error);
+    });
   }
 
 
   return (
-        <Card className="max-w-[400px] p-4 flex flex-col gap-2"> 
-            {title} 
+        <Card className="w-full  md:w-1/2 p-4 flex flex-col gap-2"> 
+            <h1 className='text-center text-xl'>{title}</h1> 
             {/* {user ? user.name : 'no hay usuario'} */}
-            <Divider/>
+            <Divider className='mt-3 mb-6'/>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-8'>
                 {title == 'Sesion' ? null : 
                   <Input
                       // type={isVisible ? "text" : "password"}
                       type="text"
                       label="Nombre"
+                      labelPlacement="outside"
+                      placeholder="Juan Perez"
                       description="Ingrese su nombre"
-                      className="max-w"
+                      className=" "
+                      fullWidth
                       {...register("username", { required: true })} 
                   />
                 }
@@ -55,6 +77,8 @@ const FormCustom = ({title, ruta}) => {
                     // isClearable
                     type="email"
                     label="Correo"
+                    labelPlacement="outside"
+                    placeholder="juan@e_calendary.com"
                     description="Ingrese correctamente su correo electronico."
                     onClear={() => console.log("input cleared")}
                     className="max-w"
@@ -67,6 +91,8 @@ const FormCustom = ({title, ruta}) => {
                 <Input
                     type={isVisible ? "text" : "password"}
                     label="Contraseña"
+                    labelPlacement="outside"
+                    placeholder='*********'
                     description="Ingrese correctamente su contraseña"
                     onClear={() => console.log("input cleared")}
                     className="max-w"
