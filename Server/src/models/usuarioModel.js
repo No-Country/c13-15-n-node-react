@@ -1,12 +1,12 @@
-const { DataTypes } =require('sequelize')
-const sequelize     =require('../utils/connect')
+const { DataTypes } = require('sequelize')
+const sequelize     = require('../utils/connect')
 const Servicio      = require('./servicioModel');
 
 const Users = sequelize.define('users', {
     id: {
         type: DataTypes.UUID,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
     },
     email: {
         type: DataTypes.STRING,

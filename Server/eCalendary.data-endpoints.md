@@ -11,18 +11,18 @@ POST /api/servicios
 	identificador_de_usuario: '<alguna secuencia alfanumérica>',
 	nombre_servicio: "<Nombre del Servicio>",
 	meses: [
-		0, //ENERO
-		1, //FEBRERO
-		3, //ABRIL
+		"ENERO",
+		"FEBRERO",
+		"ABRIL"
 	], 
 	dias: [
-		0, //DOMINGO
-		1, //LUNES
+		"DOMINGO",
+		"LUNES"
 	],
-	horarios: [
-		inicio: '<Formato YYYY-MM-DDThh:mmTZD>',
-		fin: '<Formato YYYY-MM-DDThh:mmTZD>'
-	],
+	horarios: {
+		inicio: <entero>,
+		fin: <entero>
+	},
 	intervalo: <en segundos>
 }
 	 
@@ -35,7 +35,24 @@ Con una operación exitosa debería responder
 	mensaje: "Servicio creado"
 }
 ```
-
+### El usuario recupera el servicio
+```javascript
+GET /api/servicios?servicio_id=<UUID>
+```
+La respuesta debería ser
+```javascript
+{
+	id: <UUID>,
+	nombre_de_servicio: <nombre del servicio>,
+	meses: [ "ENERO", "FEBRERO", "ABRIL" ]
+	dias: [ "LUNES", "MARTES", "JUEVES" ]
+	horarios: {
+		inicio: <entero>,
+		fin: <entero>
+	},
+	enlace: <URL para acceder a los horarios del servicio>
+}
+```
 ### El cliente consulta el calendario desde el enlace
 Una vez el usuario creó el servicio, obtiene un enlace para compartir con sus clientes.  El cliente no realiza la consulta directa al servicio de REST API, lo hace el Front-end.
 ```javascript
@@ -46,17 +63,17 @@ Las respuesta debería ser
 {
 	nombre_del_servicio: '<nombre del servicio>',
 	meses: [ 
-		0,	// ENERO
-		1,	// FEBRERO
-		3	// ABRIL
+		"ENERO",
+		"FEBRERO",
+		"ABRIL"
 	]
 	dias: [
-		1,	// LUNES
-		2,	// MARTES
-		4	// JUEVES
+		"LUNES",
+		"MARTES",
+		"JUEVES"
 	],
 	horarios: [
-		{ hora: '<Formato HH:mmTZD>', disponible: <true|false> },
+		'<Formato dd-mm-YYYY>',
 		...
 	]
 }
@@ -69,9 +86,8 @@ POST /api/reservas
 	nombre_cliente: '<cadena>',
 	contacto: '<dirección|teléfono|email>',
 	servicio: '<ID del servicio>',
-	fecha: '<Formato YYYY-MM-DD>',
 	horarios: [
-		{ hora: '<Formato HH:mmTZD>', disponible: false },...
+		'<Formato YYYY-mm-dd HH:MM>',...
 	]
 }
 ```
@@ -85,7 +101,7 @@ En caso que exista el servicio y la fecha
 ```javascript
 {
 	[
-		{ hora: '<Formato HH:mmTZD>', disponible: <true|false> }
+		'<Formato HH:MM>'
 		, ...
 	]
 }

@@ -11,6 +11,9 @@ const userRoutes=require('./routes/userRoutes')
 const authRoutes=require('./authUser/authRoute');
 const calendary_router = require('./routers/CalendaryRouter');
 //? Initial Configs
+const sessionRouter = require('./routers/sessionRouter')
+const registroRouter = require('./routers/registroRouter')
+
 
 const app = express()
 //? Enable incoming JSON data
@@ -36,6 +39,10 @@ app.get('/', (req, res) => {
         message: 'API Calendary Ok!',
     })
 })
+
+
+app.use(sessionRouter)
+app.use(registroRouter)
 
 // Routes project
 app.use('/api/servicios', jobs_router );
