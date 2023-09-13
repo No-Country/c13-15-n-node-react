@@ -5,9 +5,9 @@ Daniel es responsable de las pantallas del servicio
 ## componente service
 - componente servicio estatico en un componente reutilizable y funcional
     incluye:
-    - crear un unico componente Myselect y reutilizarlo para todas las listas a manejar (seleccionable desplegabes)
-    - mockear (crear constantes con dias, semanas, etc) para simular los datos reales
-    - completar el formulario con todos los inputs necesarios segun diseño
+    - [X]crear un unico componente Myselect y reutilizarlo para todas las listas a manejar (seleccionable desplegabes)
+    - [X] mockear (crear constantes con dias, semanas, etc) para simular los datos reales
+    - [X]completar el formulario con todos los inputs necesarios segun diseño
     - boton submit (un vez seleccionados los espacios, este boton se lo enviara al backend) por ahora controlar el submit sin hacer nada
 
 

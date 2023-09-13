@@ -1,5 +1,5 @@
 import {PrivateRouter} from "../routers/PrivateRouter"
-import {PublicRouter} from "../routers/PublicRouter"
+// import {PublicRouter} from "../routers/PublicRouter"
 import { createBrowserRouter } from "react-router-dom";
 import Calendar from "../feature/Calendar/pages/Calendar";
 import Layout from "../componets/Layaout";
@@ -8,13 +8,13 @@ import { PATH_BUSINESS, PATH_CALENDAR, PATH_LOGIN, PATH_REGISTER } from "./route
 import Login from "../feature/Sesion/pages/Login";
 import Register from "../feature/Sesion/pages/Register";
 
+
+//REPARAR
+
 const router = createBrowserRouter([
     {
         path: "/",
-        element:
-        //<PublicRouter>
-                    <Layout />,
-                //</PublicRouter>,
+        element: <Layout />,
         errorElement: <p>Error</p>,
 
         children:[
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: PATH_CALENDAR,
-                element: <Calendar />
+                element: <Calendar/>
             },
         ]
     },
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         path: "/",
         element:
                 <PrivateRouter>
-                    <Layout />,
+                    <Layout />
                 </PrivateRouter>,
         errorElement: <p>Error</p>,
 
@@ -51,11 +51,7 @@ const router = createBrowserRouter([
                     <Business />
             },
         ]
-    },
-    {
-        path:"*",
-        element: <p>vuelve</p>
-    },
+    }
 ]);
 
 export default router;
