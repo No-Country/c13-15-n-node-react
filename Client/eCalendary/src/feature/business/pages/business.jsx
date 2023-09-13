@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from './schemas/business-schema';
 import { formValidation } from '../../../componets/ErrorMessage';
 import { mapDataToSend } from '../../../utils/business-map';
+import MyBusinessInormation from '../components/MyBusiness';
 
 const Business = () => {
 
@@ -35,7 +36,7 @@ const Business = () => {
         reset
     } = formMethods;
 
-    console.log({ errors });
+    // console.log({ errors });
 
     const onSubmit = async (data) => {
 
@@ -46,9 +47,13 @@ const Business = () => {
         reset();
     }
 
-    return (
-        <div className='  flex flex-col w-full  '>
 
+    return (
+        <div className='  flex flex-col w-full min-h-screen justify-center '>
+
+            <MyBusinessInormation/>
+
+            <div className='w-full '>
             <h1 className='text-center text-2xl p-8'>Datos del servicio</h1>
             
             <FormProvider {...formMethods} >
@@ -78,6 +83,7 @@ const Business = () => {
                     </Button>
                 </form>
             </FormProvider>
+            </div>
 
         </div>
     )

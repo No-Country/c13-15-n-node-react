@@ -14,6 +14,21 @@ export const meses = [
   { value: "Noviembre", label: "Noviembre" },
   { value: "Diciembre", label: "Diciembre" },
 ];
+export const mesesRAW = [
+  { value: "0", label: "Enero" },
+  { value: "1", label: "Febrero" },
+  { value: "2", label: "Marzo" },
+  { value: "3", label: "Abril" },
+  { value: "4", label: "Mayo" },
+  { value: "5", label: "Junio" },
+  { value: "6", label: "Julio" },
+  { value: "7", label: "Agosto" },
+  { value: "8", label: "Septiembre" },
+  { value: "9", label: "Octubre" },
+  { value: "10", label: "Noviembre" },
+  { value: "11", label: "Diciembre" },
+];
+
 
 //Dias de la semana
 
@@ -25,6 +40,16 @@ export const dias = [
   { value: "Jueves", label: "Jueves"},
   { value: "Viernes", label: "Viernes"},
   { value: "Sabado", label: "Sabado"},
+]
+
+export const diasRAW = [
+  { value: "0", label: "Domingo"},
+  { value: "1", label: "Lunes"},
+  { value: "2", label: "Martes"},
+  { value: "3", label: "Miercoles"},
+  { value: "4", label: "Jueves"},
+  { value: "5", label: "Viernes"},
+  { value: "6", label: "Sabado"},
 ]
 
 //Hora 
@@ -71,7 +96,7 @@ export const intervalo = [
 
 // 🔽 GET /api/servicios?servicio_id=<UUID></UUID>
 export const myBussinesData = {
-	id: "62684321854315",
+	identificador: "01d32f3c-40da-4db8-a154-c006845f8399",
 	nombre_de_servicio: "Peluqueria Don Juan",
 	meses: [ 9, 10, 11, 12 ],
 	dias: [ 1,2,3,4,5 ],
@@ -79,6 +104,5 @@ export const myBussinesData = {
 		inicio: 8,
 		fin: 15
 	},
-	enlace: "http://localhost:5173/calendario/62684321854315"
+	enlace: "https://c13-15-e-calendary.onrender.com/api/calendarios?service_id=01d32f3c-40da-4db8-a154-c006845f8399"
 }
-
