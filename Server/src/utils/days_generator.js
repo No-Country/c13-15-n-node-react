@@ -1,7 +1,7 @@
 const translate_to_days_number = function( day ) {
     return [
-        'lunes', 'martes', 'miercoles', 'jueves'
-        , 'viernes', 'sabado', 'domingo'
+        'domingo', 'lunes', 'martes', 'miercoles', 'jueves'
+        , 'viernes', 'sabado'
     ].indexOf( day );
 }
 const translate_to_months_number = function( month ) {
@@ -16,8 +16,8 @@ const generate_days_from = function (params) {
         const increment = 24 * 3600 * 1000;
         const converter = ['01', '02', '03', '04', '05', '06', '07', '08', '09'
             , '10', '11', '12'];
-        const first = new Date(`2023-${converter[month-1]}-01`);
-        const last = new Date(`2023-${converter[month]}-01`);
+        const first = new Date(Date.parse(`2023-${converter[month-1]}-01T00:00`));
+        const last = new Date( Date.parse(`2023-${converter[month]}-01T00:00`) );
         const dates = [];
         for (i = first.valueOf(); i < last.valueOf(); i += increment) {
             dates.push(new Date(i));

@@ -8,30 +8,30 @@ describe('DaysGenerator', function () {
             months: [ 'agosto' ]
             , days: [ 'lunes', 'martes' ]
             , days_expected: [
-                new Date('2023-08-01'),
-                new Date('2023-08-07'),
-                new Date('2023-08-08'),
-                new Date('2023-08-14'),
-                new Date('2023-08-15'),
-                new Date('2023-08-21'),
-                new Date('2023-08-22'),
-                new Date('2023-08-28'),
-                new Date('2023-08-29')
+                new Date('2023-08-01T00:00'),
+                new Date('2023-08-07T00:00'),
+                new Date('2023-08-08T00:00'),
+                new Date('2023-08-14T00:00'),
+                new Date('2023-08-15T00:00'),
+                new Date('2023-08-21T00:00'),
+                new Date('2023-08-22T00:00'),
+                new Date('2023-08-28T00:00'),
+                new Date('2023-08-29T00:00')
             ]
         }
         , {
             months:[ 'agosto' ]
             , days: [ 'lunes', 'miercoles' ]
             , days_expected: [
-                new Date('2023-08-02'),
-                new Date('2023-08-07'),
-                new Date('2023-08-09'),
-                new Date('2023-08-14'),
-                new Date('2023-08-16'),
-                new Date('2023-08-21'),
-                new Date('2023-08-23'),
-                new Date('2023-08-28'),
-                new Date('2023-08-30')
+                new Date('2023-08-02T00:00'),
+                new Date('2023-08-07T00:00'),
+                new Date('2023-08-09T00:00'),
+                new Date('2023-08-14T00:00'),
+                new Date('2023-08-16T00:00'),
+                new Date('2023-08-21T00:00'),
+                new Date('2023-08-23T00:00'),
+                new Date('2023-08-28T00:00'),
+                new Date('2023-08-30T00:00')
             ]
         }
     ].forEach(function (params) {
