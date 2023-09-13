@@ -50,7 +50,7 @@ const JobController = class {
          });
          res.status(201).json({
             identificador: job.service_id
-            , enlace: `${HOST}api/calendarios?servicio_id=${job.service_id}`
+            , enlace: `${HOST}api/calendarios?service_id=${job.service_id}`
             , mensaje: "Se creó con éxito el servicio"
          })
       } catch (error) {
