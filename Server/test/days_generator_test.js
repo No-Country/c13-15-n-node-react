@@ -8,40 +8,38 @@ describe('DaysGenerator', function () {
             months: [ 'agosto' ]
             , days: [ 'lunes', 'martes' ]
             , days_expected: [
-                new Date('2023-08-01T00:00'),
-                new Date('2023-08-07T00:00'),
-                new Date('2023-08-08T00:00'),
-                new Date('2023-08-14T00:00'),
-                new Date('2023-08-15T00:00'),
-                new Date('2023-08-21T00:00'),
-                new Date('2023-08-22T00:00'),
-                new Date('2023-08-28T00:00'),
-                new Date('2023-08-29T00:00')
+                new Date(2023,8,7),
+                new Date(2023,8,8),
+                new Date(2023,8,14),
+                new Date(2023,8,15),
+                new Date(2023,8,21),
+                new Date(2023,8,22),
+                new Date(2023,8,28),
+                new Date(2023,8,29)
             ]
         }
         , {
             months:[ 'agosto' ]
             , days: [ 'lunes', 'miercoles' ]
             , days_expected: [
-                new Date('2023-08-02T00:00'),
-                new Date('2023-08-07T00:00'),
-                new Date('2023-08-09T00:00'),
-                new Date('2023-08-14T00:00'),
-                new Date('2023-08-16T00:00'),
-                new Date('2023-08-21T00:00'),
-                new Date('2023-08-23T00:00'),
-                new Date('2023-08-28T00:00'),
-                new Date('2023-08-30T00:00')
+                new Date(2023,8,7),
+                new Date(2023,8,9),
+                new Date(2023,8,14),
+                new Date(2023,8,16),
+                new Date(2023,8,21),
+                new Date(2023,8,23),
+                new Date(2023,8,28),
+                new Date(2023,8,30)
             ]
         }
     ].forEach(function (params) {
-        context(`cuando se le pasa ${params.months[0]} y los días ${params.days[0]} y ${params.days[1]}`, function () {
+        context.only(`cuando se le pasa ${params.months[0]} y los días ${params.days[0]} y ${params.days[1]}`, function () {
             it(`debería generar una lista con la fecha de todos los ${params.days[0]} y ${params.days[1]} de agosto`, function () {
 
                 const days = generate_days_from({
                     months: params.months, days: params.days
                 });
-                expect(days).to.eql(params.days_expected);
+                expect(days).to.eql( params.days_expected );
             })
         });
     });
@@ -51,24 +49,24 @@ describe('DaysGenerator', function () {
             months: [ 'agosto', 'septiembre' ]
             , days: [ 'martes', 'viernes' ]
             , days_expected: [
-                new Date("2023-08-01")
-                , new Date("2023-08-04")
-                , new Date("2023-08-08")
-                , new Date("2023-08-11")
-                , new Date("2023-08-15")
-                , new Date("2023-08-18")
-                , new Date("2023-08-22")
-                , new Date("2023-08-25")
-                , new Date("2023-08-29")
-                , new Date("2023-09-01")
-                , new Date("2023-09-05")
-                , new Date("2023-09-08")
-                , new Date("2023-09-12")
-                , new Date("2023-09-15")
-                , new Date("2023-09-19")
-                , new Date("2023-09-22")
-                , new Date("2023-09-26")
-                , new Date("2023-09-29")
+                new Date(2023,8,1)
+                , new Date(2023,8,4)
+                , new Date(2023,8,8)
+                , new Date(2023,8,11)
+                , new Date(2023,8,15)
+                , new Date(2023,8,18)
+                , new Date(2023,8,22)
+                , new Date(2023,8,25)
+                , new Date(2023,8,29)
+                , new Date(2023,9,1)
+                , new Date(2023,9,5)
+                , new Date(2023,9,8)
+                , new Date(2023,9,12)
+                , new Date(2023,9,15)
+                , new Date(2023,9,19)
+                , new Date(2023,9,22)
+                , new Date(2023,9,26)
+                , new Date(2023,9,29)
             ]
         }
     ].forEach(function (params) {
@@ -92,45 +90,45 @@ describe('DaysGenerator', function () {
             months: [ 'septiembre', 'octubre', 'noviembre' ]
             , days: [ 'lunes' ,'martes' ,'jueves' ]
             , days_expected: [
-                new Date("2023-09-04"),
-                new Date("2023-09-05"),
-                new Date("2023-09-07"),
-                new Date("2023-09-11"),
-                new Date("2023-09-12"),
-                new Date("2023-09-14"),
-                new Date("2023-09-18"),
-                new Date("2023-09-19"),
-                new Date("2023-09-21"),
-                new Date("2023-09-25"),
-                new Date("2023-09-26"),
-                new Date("2023-09-28"),
-                new Date("2023-10-02"),
-                new Date("2023-10-03"),
-                new Date("2023-10-05"),
-                new Date("2023-10-09"),
-                new Date("2023-10-10"),
-                new Date("2023-10-12"),
-                new Date("2023-10-16"),
-                new Date("2023-10-17"),
-                new Date("2023-10-19"),
-                new Date("2023-10-23"),
-                new Date("2023-10-24"),
-                new Date("2023-10-26"),
-                new Date("2023-10-30"),
-                new Date("2023-10-31"),
-                new Date("2023-11-02"),
-                new Date("2023-11-06"),
-                new Date("2023-11-07"),
-                new Date("2023-11-09"),
-                new Date("2023-11-13"),
-                new Date("2023-11-14"),
-                new Date("2023-11-16"),
-                new Date("2023-11-20"),
-                new Date("2023-11-21"),
-                new Date("2023-11-23"),
-                new Date("2023-11-27"),
-                new Date("2023-11-28"),
-                new Date("2023-11-30")
+                new Date(2023,9,4),
+                new Date(2023,9,5),
+                new Date(2023,9,7),
+                new Date(2023,9,11),
+                new Date(2023,9,12),
+                new Date(2023,9,14),
+                new Date(2023,9,18),
+                new Date(2023,9,19),
+                new Date(2023,9,21),
+                new Date(2023,9,25),
+                new Date(2023,9,26),
+                new Date(2023,9,28),
+                new Date(2023,10,2),
+                new Date(2023,10,3),
+                new Date(2023,10,5),
+                new Date(2023,10,9),
+                new Date(2023,10,10),
+                new Date(2023,10,12),
+                new Date(2023,10,16),
+                new Date(2023,10,17),
+                new Date(2023,10,19),
+                new Date(2023,10,23),
+                new Date(2023,10,24),
+                new Date(2023,10,26),
+                new Date(2023,10,30),
+                new Date(2023,10,31),
+                new Date(2023,11,2),
+                new Date(2023,11,6),
+                new Date(2023,11,7),
+                new Date(2023,11,9),
+                new Date(2023,11,13),
+                new Date(2023,11,14),
+                new Date(2023,11,16),
+                new Date(2023,11,20),
+                new Date(2023,11,21),
+                new Date(2023,11,23),
+                new Date(2023,11,27),
+                new Date(2023,11,28),
+                new Date(2023,11,30)
                 
             ]
         }
