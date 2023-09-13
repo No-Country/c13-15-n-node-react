@@ -6,7 +6,7 @@ const JobController = class {
       try {
          const user_id = req.user.id
          const { job, months, wdays } = await jobs.list_all({ user_id: user_id });
-         console.log(">> CONTROLLER", months, wdays, job.id);
+         console.log(">> CONTROLLER", months, wdays, job.service_id);
          res.json({
             id: job.service_id
             , nombre_del_servicio: job.name
