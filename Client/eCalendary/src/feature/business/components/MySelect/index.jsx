@@ -18,6 +18,7 @@ import { formValidation } from "../../../../componets/ErrorMessage";
         id={name}
         {...register(name)}
         label= {titulo}
+        labelPlacement="outside"
         placeholder={titulo}
         selectionMode = {seleccionMultiple ? "multiple" : "single"}
         className=""

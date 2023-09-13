@@ -17,7 +17,11 @@ const Business = () => {
     const formMethods = useForm({
         defaultValues: {
             servicio: '',
-            meses: [],
+            meses: '',
+            dias: '',
+            hora_ini: '',
+            hora_fin: '',
+            intervalo: '',
         },
         mode: "onChange",
         resolver: yupResolver(schema)
@@ -54,6 +58,7 @@ const Business = () => {
                     <Input
                         label="Nombre del servicio"
                         placeholder="Peluqueria Pepito"
+                        labelPlacement="outside"
                         className=""
                         fullWidth
                         {...register("servicio")}
@@ -65,7 +70,10 @@ const Business = () => {
                     <MySelect name="hora_fin" lista={Hora} titulo="Hora de cierre del servicio" seleccionMultiple={false} />
                     <MySelect name="intervalo" lista={intervalo} titulo="Intervalo" />
 
-                    <Button color="primary" className='md:col-span-2' isDisable={(!isDirty || !isValid)} type='submit' >
+                    <Button 
+                        color='primary'
+                        variant={ (!isDirty || !isValid) ? "flat" : "shadow" }
+                        className='md:col-span-2' isDisable={(!isDirty || !isValid)} type='submit' >
                         Crear
                     </Button>
                 </form>
