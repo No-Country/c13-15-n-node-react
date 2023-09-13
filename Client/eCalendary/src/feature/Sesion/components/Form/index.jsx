@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Button, Card, Divider, Input} from "@nextui-org/react";
 import { useForm } from "react-hook-form"
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../../../context/AuthContext';
+
 // import { getUser } from '../../services/user';
 
-const FormCustom = ({title}) => {
+const FormCustom = ({title, ruta}) => {
+  const { login } = useContext(AuthContext)
 
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const navigate = useNavigate()
 
   const {
     register,
@@ -16,11 +23,22 @@ const FormCustom = ({title}) => {
     formState: { errors },
   } = useForm()
 
-  console.log(title)
 
-  const onSubmit = (data) => console.log({title, data})
+  const onSubmit = (data) => {
+    axios.post(ruta, data)
+      .then((response) => {
+        const token = response.data.token;
+        console.log('Esto es registro ',{response})
+        localStorage.setItem('token', token);
+        login()
+        navigate('/')
+        //window.location.reload()
+      })
+      .catch((error) => {
+        console.error('Error al realizar la solicitud POST:', error);
+      });
+  }
 
-//   console.log(watch("email")) // watch input value by passing the name of it
 
   return (
         <Card className="max-w-[400px] p-4 flex flex-col gap-2"> 
@@ -28,10 +46,20 @@ const FormCustom = ({title}) => {
             {/* {user ? user.name : 'no hay usuario'} */}
             <Divider/>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-8'>
+                {title == 'Sesion' ? null : 
+                  <Input
+                      // type={isVisible ? "text" : "password"}
+                      type="text"
+                      label="Nombre"
+                      description="Ingrese su nombre"
+                      className="max-w"
+                      {...register("username", { required: true })} 
+                  />
+                }
                 <Input
                     // isClearable
                     type="email"
-                    label="Email"
+                    label="Correo"
                     description="Ingrese correctamente su correo electronico."
                     onClear={() => console.log("input cleared")}
                     className="max-w"
@@ -41,11 +69,9 @@ const FormCustom = ({title}) => {
                     //     <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                     //   }
                 />
-
                 <Input
                     type={isVisible ? "text" : "password"}
-                    label="Password"
-                    //placeholder="Enter your password"
+                    label="Contraseña"
                     description="Ingrese correctamente su contraseña"
                     onClear={() => console.log("input cleared")}
                     className="max-w"
@@ -58,7 +84,7 @@ const FormCustom = ({title}) => {
                 {/* {errors.password && <span>This field is required</span>} */}
 
                 <Button color="primary" variant="shadow" type='submit'>
-                  {title === 'Login' ? 'Iniciar Sesion' : 'Registrarse'}
+                  {title === 'Sesion' ? 'Iniciar Sesion' : 'Registrarse'}
                 </Button>  
             </form>
         </Card>

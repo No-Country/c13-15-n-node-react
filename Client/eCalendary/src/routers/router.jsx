@@ -7,30 +7,24 @@ import Business from "../feature/business/pages/business";
 import { PATH_BUSINESS, PATH_CALENDAR, PATH_LOGIN, PATH_REGISTER } from "./routerPaths";
 import Login from "../feature/Sesion/pages/Login";
 import Register from "../feature/Sesion/pages/Register";
+
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Layout />,
+        element:
+        //<PublicRouter>
+                    <Layout />,
+                //</PublicRouter>,
         errorElement: <p>Error</p>,
 
         children:[
             {
                 index: true,
-                element: <PublicRouter><div>Landing</div></PublicRouter>,
+                element: <div>Landing</div>,
             },
             {
                 path: PATH_LOGIN,
-                element: 
-                //<PrivateRouter>
-                    <Login />
-                //</PrivateRouter>
-            },
-            {
-                path: PATH_BUSINESS,
-                element: 
-                // <PrivateRouter>
-                    <Business />
-                // </PrivateRouter>
+                element: <Login />
             },
             {
                 path: PATH_REGISTER,
@@ -39,6 +33,22 @@ const router = createBrowserRouter([
             {
                 path: PATH_CALENDAR,
                 element: <Calendar />
+            },
+        ]
+    },
+    {
+        path: "/",
+        element:
+                <PrivateRouter>
+                    <Layout />,
+                </PrivateRouter>,
+        errorElement: <p>Error</p>,
+
+        children:[
+            {
+                path: PATH_BUSINESS,
+                element: 
+                    <Business />
             },
         ]
     },

@@ -29,6 +29,7 @@ const AuthProvider = ({children}) => {
 
     const init = () => {
         const token = localStorage.getItem("token");
+        console.log(token)
         return {
             logged: !!token,
         };
