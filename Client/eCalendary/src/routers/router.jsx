@@ -8,9 +8,6 @@ import { PATH_BUSINESS, PATH_CALENDAR, PATH_LOGIN, PATH_REGISTER } from "./route
 import Login from "../feature/Sesion/pages/Login";
 import Register from "../feature/Sesion/pages/Register";
 
-
-//REPARAR
-
 const router = createBrowserRouter([
     {
         path: "/",
