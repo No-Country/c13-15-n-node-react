@@ -2,7 +2,7 @@
 Este proyecto es parte del proceso de NO-Country en una simulacion laboral, basado en una aplicacion que solucione un problema real.
 
 ![calendary](./src/assets/cale.jpeg)
-Con nuestra aplicación, agendar citas nunca ha sido más fácil. Le proporcionamos un calendario intuitivo para que pueda elegir la cita que mejor se adapte a su horario. Simplifique la gestión de sus compromisos y reserve su próximo encuentro con solo unos pocos clics.
+* Con nuestra aplicación, agendar citas nunca ha sido más fácil. Le proporcionamos un calendario intuitivo para que pueda elegir la cita que mejor se adapte a su horario. Simplifique la gestión de sus compromisos y reserve su próximo encuentro con solo unos pocos clics.
 
 ## Tecnologias
 Este es un proyecto Full Stack desarrollado en React que utiliza varias tecnologías y bibliotecas para crear una aplicación web dinámica y moderna. A continuación, se detallan las principales tecnologías y bibliotecas utilizadas en este proyecto:
@@ -65,20 +65,18 @@ No necesita instalacion, porque se encuentra desplegado en internet, en el caso 
 
 
 
-## Equipo
-* Linkedin: 
-    [x]Emanuel Gauler : https://www.linkedin.com/in/emanuel-gauler/
-    [x]Alejandra Motta : https://www.linkedin.com/in/alejandra-motta-1b6b39287?trk=contact-info
-    [x]Daniel Barraza : https://www.linkedin.com/in/daniel-barraza-034952248
-    [x]Marcelo Diaz : https://www.linkedin.com/in/marcelo-a-diaz-6a7926223/
-    [x]Alexander Briones : https://www.linkedin.com/in/alexbvart/
-    [x]Gustavo Cubilla : https://www.linkedin.com/in/gustavo-cubilla-0175a8241
-    [x]Pablo Silva : https://www.linkedin.com/in/pablo-silvawebdeveloper 
+## Linkedin del equipo:
+
+* Emanuel Gauler : https://www.linkedin.com/in/emanuel-gauler/
+* Alejandra Motta : https://www.linkedin.com/in/alejandra-motta-1b6b39287?trk=contact-info
+* Daniel Barraza : https://www.linkedin.com/in/daniel-barraza-034952248
+* Marcelo Diaz : https://www.linkedin.com/in/marcelo-a-diaz-6a7926223/
+* Alexander Briones : https://www.linkedin.com/in/alexbvart/
+* Gustavo Cubilla : https://www.linkedin.com/in/gustavo-cubilla-0175a8241
+* Pablo Silva : https://www.linkedin.com/in/pablo-silvawebdeveloper 
 
 * Github: [Branch:Developer](https://github.com/No-Country/c13-15-n-node-react)
 
-##  Licencia
-Este proyecto esta bajo la licencia [Equipo15 - T/Noche](/LICENCE).
 
 ## Capturas
 
@@ -88,3 +86,6 @@ Este proyecto esta bajo la licencia [Equipo15 - T/Noche](/LICENCE).
 ![Alt text](image-3.png)
 ![Alt text](image-4.png)
 
+
+##  Licencia
+Este proyecto esta bajo la licencia [Equipo15 - T/Noche](/LICENCE).
