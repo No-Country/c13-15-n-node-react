@@ -15,10 +15,9 @@ class ReservationService {
                schedule: new Date( date )
             }, include: ReservationModel
          })
-         const scheduled_hours = await a_date.at(0).reservas.map( (e) => e.schedules ).map( e => +e )
+         const scheduled_hours = a_date.at(0).reservas.map( e => e.schedules ).map( e => +e )
          const include = hours.reduce( (a, h) => { a &= scheduled_hours.includes(h); return a }, true)
          if(include) {
-            console.log( ">>>> HOURS REQUEST ON SERVICE", hours)
             return false;
          }
 
@@ -31,11 +30,11 @@ class ReservationService {
          })
 
 
-         console.log( ">> RESERVATION ON SERVICE", date, reservation_data.service_id )
-         reserva.setSchedule( a_date );
+         console.log( ">> RESERVATION SERVICE", date, reservation_data.service_id )
+         await reserva.setSchedule( a_date );
          return reserva
       } catch (error) {
-         console.error( ">>>> ERROR ON SERVICE", error )
+         console.error( ">> ERROR", error )
       }
    }
 }
