@@ -1,5 +1,5 @@
 import {PrivateRouter} from "../routers/PrivateRouter"
-// import {PublicRouter} from "../routers/PublicRouter"
+import {PublicRouter} from "../routers/PublicRouter"
 import { createBrowserRouter } from "react-router-dom";
 import Calendar from "../feature/Calendar/pages/Calendar";
 import Layout from "../componets/Layaout";
@@ -8,16 +8,20 @@ import { PATH_BUSINESS, PATH_CALENDAR, PATH_LOGIN, PATH_REGISTER } from "./route
 import Login from "../feature/Sesion/pages/Login";
 import Register from "../feature/Sesion/pages/Register";
 
+import Landing from "../componets/Landing/Landing.jsx";
+
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Layout />,
+        element:  <PublicRouter>
+                    <Layout />,
+                 </PublicRouter>,
         errorElement: <p>Error</p>,
 
         children:[
             {
                 index: true,
-                element: <div>Landing</div>,
+                element: <Landing/>,
             },
             {
                 path: PATH_LOGIN,
