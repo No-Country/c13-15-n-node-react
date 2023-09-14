@@ -4,7 +4,7 @@ Este proyecto es parte del proceso de NO-Country en una simulacion laboral, basa
 ![calendary](./src/assets/cale.jpeg)
 * Con nuestra aplicación, agendar citas nunca ha sido más fácil. Le proporcionamos un calendario intuitivo para que pueda elegir la cita que mejor se adapte a su horario. Simplifique la gestión de sus compromisos y reserve su próximo encuentro con solo unos pocos clics.
 
-## Tecnologias
+## Tecnologías
 Este es un proyecto Full Stack desarrollado en React que utiliza varias tecnologías y bibliotecas para crear una aplicación web dinámica y moderna. A continuación, se detallan las principales tecnologías y bibliotecas utilizadas en este proyecto:
 
 * [React](https://es.react.dev/) \
