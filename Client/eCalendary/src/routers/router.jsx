@@ -7,18 +7,21 @@ import Business from "../feature/business/pages/business";
 import { PATH_BUSINESS, PATH_CALENDAR, PATH_LOGIN, PATH_REGISTER } from "./routerPaths";
 import Login from "../feature/Sesion/pages/Login";
 import Register from "../feature/Sesion/pages/Register";
+import Landing from "../componets/Landing/Landing.jsx";
+
 const router = createBrowserRouter([
     {
         path: "/",
-        element:<PublicRouter>
-                    <Layout />
-                </PublicRouter>,
+        element:  <PublicRouter>
+                    <Layout />,
+                 </PublicRouter>,
         errorElement: <p>Error</p>,
 
         children:[
             {
                 index: true,
-                element: <div>Landing</div>,
+                element: <h1>HOLAAAA</h1>,
+//                element: <Landing/>,
             },
             {
                 path: PATH_LOGIN,
