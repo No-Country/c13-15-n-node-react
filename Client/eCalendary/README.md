@@ -1,27 +1,24 @@
-# Hacking-Challenge-Rimac
-Este proyecto es parte de un proceso de seleccion, el reto tecnico es realizado por [Rimac](https://www.rimac.com/) para la posición de Desarrollador Frontend Senior.
+# Proyecto E-Calendary
+Este proyecto es parte del proceso de NO-Country en una simulacion laboral, basado en una aplicacion que solucione un problema real.
 
-![HackingChallengeRimac](./src/assets/mockup.png)
+![calendary](./src/assets/cale.jpeg)
+Con nuestra aplicación, agendar citas nunca ha sido más fácil. Le proporcionamos un calendario intuitivo para que pueda elegir la cita que mejor se adapte a su horario. Simplifique la gestión de sus compromisos y reserve su próximo encuentro con solo unos pocos clics.
 
 ## Tecnologias
-Este es un proyecto de frontend desarrollado en React que utiliza varias tecnologías y bibliotecas para crear una aplicación web dinámica y moderna. A continuación, se detallan las principales tecnologías y bibliotecas utilizadas en este proyecto:
+Este es un proyecto Full Stack desarrollado en React que utiliza varias tecnologías y bibliotecas para crear una aplicación web dinámica y moderna. A continuación, se detallan las principales tecnologías y bibliotecas utilizadas en este proyecto:
 
 * [React](https://es.react.dev/) \
 React es la biblioteca `JavaScript` principalmente utilizada para construir la interfaz de usuario de la aplicación.
 
-* [React DOM](https://es.react.dev/reference/react-dom) \
- React-DOM es una biblioteca relacionada que permite renderizar componentes de React en el navegador web.
+* [Vite](https://vitejs.dev/) \
+ Vite es un rápido y moderno generador de proyectos web que se utiliza para el desarrollo de aplicaciones web de una sola página (SPA) y aplicaciones estáticas. Su rendimiento y eficiencia lo hacen ideal para el desarrollo front-end, facilitando la creación de aplicaciones web ágiles y eficaces.
 
-* [React Router DOM](https://reactrouter.com/en/6.15.0) \
-Biblioteca que facilita la navegación y el enrutamiento en aplicaciones React. Permite crear rutas y vistas para diferentes páginas o secciones de la aplicación, lo que es fundamental para la navegación en SPA (Single Page Applications).
 
-* [Zustand](https://zustand-demo.pmnd.rs/) \
-Zustand es una biblioteca de gestión de estado en React que facilita la creación y administración de estados en la aplicación. Es útil para el manejo de datos y el estado de la aplicación de manera global.
+* [tailwind](https://tailwindcss.com/) \
+Tailwind CSS es un marco de diseño (framework) de CSS altamente configurable y de bajo nivel que se utiliza para acelerar y simplificar el desarrollo web. Permite a los desarrolladores crear interfaces de usuario atractivas y personalizables de manera eficiente mediante clases de estilo predefinidas.
 
-* [SWR](https://swr.vercel.app/) \
-SWR (Stale-While-Revalidate) es una biblioteca para la gestión de la caché y las solicitudes de datos en aplicaciones React. Facilita la obtención y actualización de datos desde el servidor de manera eficiente, manteniendo los datos frescos y actualizados.
 
-* [React Hook Form](https://react-hook-form.com/) \
+* [ react hook form](https://react-hook-form.com/) \
 @hookform/resolvers\
 React Hook Form es una biblioteca que simplifica la gestión de formularios en aplicaciones React. Proporciona un enfoque basado en hooks para manejar formularios, gestionar la validación y rastrear el estado del formulario.
 
@@ -31,48 +28,63 @@ Yup es una biblioteca de validación de esquemas que se utiliza en conjunto con 
 * [axios](https://axios-http.com/) \
 Axios es una biblioteca popular para realizar solicitudes HTTP desde una aplicación frontend. Se utiliza para interactuar con servidores remotos y recuperar datos, realizar acciones CRUD (Crear, Leer, Actualizar, Borrar) y más.
 
-* [nextui-org](https://nextui.org/docs/getting-started) \
+* [NextUI](https://nextui.org/docs/getting-started) \
 NextUI es una biblioteca de componentes para React que ofrece una amplia gama de componentes de interfaz de usuario predefinidos y personalizables. Facilita la creación de interfaces de usuario modernas y atractivas.
 
-* [Framer Motion](https://www.framer.com/api/motion/) \
+* [Node](https://www.framer.com/api/motion/) \
 Framer Motion es una biblioteca de animaciones declarativas para React. Se utiliza para crear animaciones suaves y atractivas en la interfaz de usuario, mejorando la experiencia del usuario y haciendo que la aplicación sea más interactiva.
+
+* [JWT](https://jwt.io/) \
+(JSON Web Token) es una especificación para la creación de tokens de seguridad basados en JSON que se utilizan para la autenticación y autorización en aplicaciones web y servicios.
+
+* [Express](https://expressjs.com/) \
+Express.js es ampliamente utilizado en el desarrollo de aplicaciones web y APIs en Node.js debido a su simplicidad y versatilidad. Puedes encontrar tutoriales, ejemplos y recursos en línea para aprender y trabajar con Express.js.
+
+* [Postgrest](https://github.com/PostgREST/postgrest) \
+es una herramienta que permite convertir una base de datos PostgreSQL en una API RESTful automáticamente. 
+
+* [bcryptjs](https://www.npmjs.com/package/bcryptjs) \
+bcryptjs es una biblioteca de JavaScript que se utiliza para el hash y la verificación segura de contraseñas. Es comúnmente utilizada en aplicaciones web y sistemas para proteger las contraseñas de los usuarios mediante técnicas de encriptación segura.
+
+* [Passportjs](https://www.npmjs.com/package/passport) \
+es una biblioteca de autenticación para Node.js que se utiliza para simplificar la implementación de autenticación de usuarios en aplicaciones web. Ofrece una amplia gama de estrategias de autenticación, como autenticación local con contraseñas, autenticación OAuth, y más, lo que facilita la integración de sistemas de autenticación en aplicaciones web de manera segura y escalable.
+
+* [Sequelize](https://sequelize.org/) \
+Sequelize es una biblioteca de JavaScript para Node.js que se utiliza como un ORM (Object-Relational Mapping) para interactuar con bases de datos relacionales, como PostgreSQL, MySQL, SQLite y otros. Facilita la gestión y consulta de bases de datos utilizando objetos JavaScript en lugar de SQL directo, lo que simplifica el desarrollo de aplicaciones basadas en bases de datos.
+
+* [mochajs](https://www.npmjs.com/package/mocha) \
+Mocha.js es un popular framework de pruebas (testing framework) para JavaScript que se utiliza para la ejecución de pruebas unitarias y de integración en aplicaciones y proyectos JavaScript, ya sea en el lado del servidor (Node.js) o en el lado del cliente (navegadores). Proporciona una variedad de características y opciones para escribir y ejecutar pruebas de manera flexible y eficiente.
+
+* [pg-hstore](https://www.npmjs.com/package/pg-hstore) \
+es una biblioteca de JavaScript que se utiliza para trabajar con el tipo de datos hstore en PostgreSQL. Permite convertir objetos JavaScript en representaciones hstore y viceversa, lo que facilita la manipulación y almacenamiento de datos clave-valor en una base de datos PostgreSQL. Esta biblioteca es especialmente útil cuando se trabaja con bases de datos PostgreSQL en aplicaciones Node.js.
 
 
 ## Instalación
-Para instalar este proyecto en un entorno local (su computador) abra la `terminal` de comandos y siga estos pasos:
-
-**1. Clonar el repositorio** \
-Para este paso es necesario tener instalado [Git](https://git-scm.com/).
-Clona este repositorio en tu máquina local utilizando el comando:
-``` shell
-git clone https://github.com/alexbvart/Hacking-Challenge-Rimac.git
-```
-Para ingresar a la carpeta de la aplicación usamos:
-``` shell
-cd hacking-challenge-rimac
-```
-
-**2. Instalamos las dependencias**\
-En este punto necesitaremos tener instalado [Node](https://nodejs.org/en/).
-Navega al directorio del proyecto y ejecuta el siguiente comando para instalar todas las dependencias necesarias:
-``` shell
-npm install
-```
-
-**3. Ejecutar la aplicación**
-
-Ahora si ya estamos listos para ejecutar la aplicación con:
-
-``` shell
-npm run dev
-```
-Ahora la aplicación deberia de estar en [http://localhost:5173/](http://localhost:5173/) en su navegador.
+No necesita instalacion, porque se encuentra desplegado en internet, en el caso del Backend por Render y en el Frontend por Netlify
 
 
 
-## Contacto
-* Linkedin: [alexbvart](https://www.linkedin.com/in/alexbvart/)
-* Github: [alexbvart](https://github.com/alexbvart)
+
+## Equipo
+* Linkedin: 
+    [x]Emanuel Gauler : https://www.linkedin.com/in/emanuel-gauler/
+    [x]Alejandra Motta : https://www.linkedin.com/in/alejandra-motta-1b6b39287?trk=contact-info
+    [x]Daniel Barraza : https://www.linkedin.com/in/daniel-barraza-034952248
+    [x]Marcelo Diaz : https://www.linkedin.com/in/marcelo-a-diaz-6a7926223/
+    [x]Alexander Briones : https://www.linkedin.com/in/alexbvart/
+    [x]Gustavo Cubilla : https://www.linkedin.com/in/gustavo-cubilla-0175a8241
+    [x]Pablo Silva : https://www.linkedin.com/in/pablo-silvawebdeveloper 
+
+* Github: [Branch:Developer](https://github.com/No-Country/c13-15-n-node-react)
 
 ##  Licencia
-Este proyecto esta bajo la licencia [MIT](/LICENCE).
+Este proyecto esta bajo la licencia [Equipo15 - T/Noche](/LICENCE).
+
+## Capturas
+
+![Alt text](image.png)
+![Alt text](image-1.png)
+![Alt text](image-2.png)
+![Alt text](image-3.png)
+![Alt text](image-4.png)
+
