@@ -40,7 +40,9 @@
   
   .image {
     text-align: center;
-    margin-top: 20px; /* Añadido margen superior para separar la imagen del texto en dispositivos pequeños */
+    margin-top: 20px; 
+    width: 300px;
+    height: 300px;
   }
   
   img {

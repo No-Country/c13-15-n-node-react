@@ -8,12 +8,15 @@
     width: 100%;
     color: rgb(255, 255, 255);
 }
-
+.hh{
+    font-size: 17px;
+}
 .columns {
     display: flex;
-    justify-content: center ;
+    justify-content: space-around;
     font-size: 14px;
     gap: 3em;
+    flex-direction: row;
 }
 
 .titulo {
@@ -21,11 +24,17 @@
     color: rgb(154, 154, 154);
 }
 
-.column p {
-    cursor: pointer; /* Agregamos esto para que el cursor se transforme en una mano al pasar sobre los nombres */
-    transition: transform 0.85s; /* Agregamos transición para suavizar el efecto de rotación */
-  }
+/* Agregamos reglas CSS para los elementos <p> dentro de .column */
+.column {
+    display: flex; /* Para que los elementos <p> se coloquen uno al lado del otro */
+    align-items: center; /* Para centrar verticalmente los elementos <p> */
+}
 
-  .link {
-    color: white
-  }
+.column p {
+    cursor: pointer;
+    transition: transform 0.85s;
+}
+
+.link {
+    color: white;
+}
