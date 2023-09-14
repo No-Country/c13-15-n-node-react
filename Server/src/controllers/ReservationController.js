@@ -23,6 +23,9 @@ class ReservationController {
       
       try {
          const reservation = await reservations.create({ service_id, cliente, email, fecha, horas })
+         if(!reservation) {
+            res.status(400).json( {message: 'Ya se encuentra reservado' } )
+         }
          res.status(201).json({
             message: "Reserva realizada"
             , reserva: reservation
