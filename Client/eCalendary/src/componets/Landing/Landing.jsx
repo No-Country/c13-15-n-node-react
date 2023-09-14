@@ -6,12 +6,12 @@ const Landing = () => {
   return (
     <div className={styles.landing}>
       <div className={styles.text}>
-        <h1>Bienvenido a E-Calendry</h1>
-        <p>Descubre todas las increíbles funciones que tenemos para ti.</p>
+        <h1>Bienvenido a E-Calendary</h1>
+        <p>Con nuestra aplicación, agendar citas nunca ha sido más fácil. Le proporcionamos un calendario intuitivo para que pueda elegir la cita que mejor se adapte a su horario. Simplifique la gestión de sus compromisos y reserve su próximo encuentro con solo unos pocos clics.</p>
         <button className={styles.button}>Prueba Gratis</button>
       </div>
       <div className={styles.image}>
-        <img src="tu_imagen.jpg" alt="Imagen de bienvenida" />
+        <img src="../src/assets/cale.jpeg" alt="Imagen de bienvenida" />
       </div>
       <Footer/>
     </div>

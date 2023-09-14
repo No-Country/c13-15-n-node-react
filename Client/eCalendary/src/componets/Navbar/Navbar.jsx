@@ -17,7 +17,7 @@ export default function NavbarCustom() {
       <NavbarBrand>
         <Logo />
         <Link to={PATH_HOME}>
-          <p className="font-bold text-inherit text-white">E-Caar</p>
+          <p className="font-bold text-inherit text-white">E-Calendary</p>
         </Link>
         </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
@@ -49,7 +49,7 @@ export default function NavbarCustom() {
             {
               (ruta != PATH_REGISTER ) &&
                 <NavbarItem>
-                  <Link to={PATH_REGISTER}>Regrse</Link>
+                  <Link to={PATH_REGISTER}>Registrarse</Link>
                 </NavbarItem>
             }
           </NavbarContent>

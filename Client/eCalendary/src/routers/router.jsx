@@ -13,9 +13,9 @@ import Landing from "../componets/Landing/Landing.jsx";
 const router = createBrowserRouter([
     {
         path: "/",
-        element:  <PublicRouter>
+        element:  //<PublicRouter>
                     <Layout />,
-                 </PublicRouter>,
+                // </PublicRouter>,
         errorElement: <p>Error</p>,
 
         children:[
