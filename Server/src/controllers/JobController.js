@@ -62,18 +62,27 @@ const JobController = class {
    }
 
    async getCalendary(req, res) {
-      const serviceId = req.query.service_id
-      const { job, dates } = await jobs.getJobCalendary(serviceId)
+      const serviceId   = req.query.service_id
+      const date        = req.query.fecha
+      const { job, dates } = await jobs.getJobCalendary({ serviceId, date })
       try {
-         if ({ job, dates }) {
-            res.status(200).json({
-               jobName: job.name,
-               calendary: {
-                  months: dates.months,
-                  days: dates.wdays
-               }
+         if ( job ) {
+            if (dates) {
+               res.status(200).json({
+                  jobName: job.name,
+                  calendary: {
+                     meses: dates.months,
+                     dias: dates.wdays,
+                     inicio: job.init_time
+                     , fin: job.finish_time
+                  }
 
-            })
+               })
+            } else {
+               res.status(200).json({
+                  job
+               })
+            }
          }
          else {
             res.status(404).json({

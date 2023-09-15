@@ -1,8 +1,9 @@
-const { v4: uuidv4 }                      = require('uuid');
-const generate_days_from                  = require('../utils/days_generator');
-const transform_to_months_and_days_from   = require('../utils/transform_to_months_and_days_from');
-const JobModel                            = require('../models/servicioModel');
-const ScheduleModel                       = require('../models/FechaModel');
+const { v4: uuidv4 } = require('uuid');
+const generate_days_from = require('../utils/days_generator');
+const transform_to_months_and_days_from = require('../utils/transform_to_months_and_days_from');
+const JobModel = require('../models/servicioModel');
+const ScheduleModel = require('../models/FechaModel');
+const ReservationModel = require('../models/reservaModel')
 
 const JobsService = class {
    async list_all(params = {}) {
@@ -15,9 +16,9 @@ const JobsService = class {
 
       if (!job) {
          console.log(">> JOB =", job)
-         throw new Object({name: 'JobNotFound', message: 'Servicio no encontrado'})
+         throw new Object({ name: 'JobNotFound', message: 'Servicio no encontrado' })
       }
-      
+
       try {
          const schedules = await job.getSchedules();
          // Genero un array con las fechas del servicio encontrado
@@ -31,7 +32,7 @@ const JobsService = class {
             job, months, wdays
          };
       } catch (error) {
-         if( 'TypeError' === error.name){
+         if ('TypeError' === error.name) {
             console.log(">>", error);
             throw { name: 'JobNoFound', message: 'Servicio no encontrado' };
          }
@@ -48,6 +49,8 @@ const JobsService = class {
             , duration: job_data.duration
             , userId: job_data.userId
          });
+
+         console.log(">>>> ON JOBS SERVICE", job)
 
          const days_schedules = generate_days_from({
             "months": job_data.months,
@@ -71,24 +74,46 @@ const JobsService = class {
       }
    }
 
-   async getJobCalendary(serviceId){
-      const schedulesJob= await JobModel.findAll({
-         where:{
-            service_id:serviceId
+   async getJobCalendary(params = { date: null }) {
+      console.log(">>>> ON JOBS SERVICE", params );
+      const schedulesJob = await JobModel.findAll({
+         where: {
+            service_id: params.serviceId
          },
-         include:{
-         model:ScheduleModel,
-         attributes:{
-            exclude:["createdAt","updatedAt"]
-         }
+         include: {
+            model: ScheduleModel,
+            attributes: [ "schedule" ],
+            include: {
+               model: ReservationModel,
+               attributes: ["schedules"]
+            }
          }
       })
-      const datesJob=schedulesJob[0].schedules.map(data=>data.schedule)
-      return {
-         job:schedulesJob[0],
-         dates:transform_to_months_and_days_from(datesJob)
+
+      const job      = schedulesJob[0];
+      let result = {
+         job
+      };
+
+      if( params.date ) {
+         const r = job.schedules.filter( d => {
+            return d.schedule === params.date
+         } )
+
+         console.log( ">>>>", r[0] );
+         result.job = r[0].reservas[0].schedules.split(",").map( x => +x )
+      } else {
+         const datesJob = job.schedules.map(data => data.schedule)
+         result.dates = transform_to_months_and_days_from(datesJob) 
       }
+
+      return result;
       
+      return {
+         job: schedulesJob[0],
+         dates: transform_to_months_and_days_from(datesJob)
+      }
+
    }
 }
 
