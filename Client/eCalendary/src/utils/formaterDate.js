@@ -31,3 +31,13 @@ export const formattedDailySchedules = ( date , schedules) => {
   }
 }
 
+
+export const noWorkingHours = (horaInicio, horaFin) => {
+  const horas = [];
+  for (let hora = 0; hora <= 24; hora++) {
+    if (hora < horaInicio || hora > horaFin) {
+      horas.push(hora);
+    }
+  }
+  return horas;
+};  

@@ -5,24 +5,12 @@ const RenderHours = () => {
 
     const [selectedHours, setSelectedHours] = useScheduleStore((state) => [state.selectedHours, state.setSelectedHours]);
     const [selectedInterval] = useScheduleStore((state) => [state.selectedInterval]);
-    const   [businessCalendary] = useCalendarStore((state) => [ state.businessCalendary]);
-    const [busyHours, setBusyHours] = useScheduleStore((state) => [state.busyHours, state.setBusyHours])
+    const [busyHours] = useScheduleStore((state) => [state.busyHours])
 
 
-    function horas_libres(hora_inicio, hora_fin) {
-        const horas = [];
-        for (let i = 0; i < 24; i++) {
-          if (i < hora_inicio || i >= hora_fin) {
-            horas.push(i);
-          }
-        }
-        return horas;
-      }
 
-      console.log(businessCalendary)
-    if(businessCalendary){
-        console.log(horas_libres(businessCalendary.calendary.inicio, businessCalendary.calendary.fin))
-    }
+
+
 
     const calculateTotalHours = useCallback(() => {
         return (60 / selectedInterval) * 24;
