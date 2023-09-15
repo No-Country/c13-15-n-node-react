@@ -43,6 +43,23 @@ export const postDataPrivate = async ({ url, data }) => {
 //     }
 
 // }
+
+export const getDataPublic = async (url) => {
+
+    try {
+        const response = await axios(
+            {
+                method: 'get',
+                url: url,
+            }
+        ).then(response => response.data);
+        return response;
+
+    } catch (error) {
+        return error.response.data        
+    }
+}
+
 export const getDataPrivate = async (url) => {
 
     const token = getToken()

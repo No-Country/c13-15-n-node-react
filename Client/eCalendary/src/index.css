@@ -40,7 +40,8 @@ button:focus {
 }
 
 body {
-  background-color: #8aa8e565; 
+  /* background-color: #8aa8e565;  */
+  background: linear-gradient(to left bottom, rgb(219, 234, 254), rgb(240, 244, 248), rgb(203, 223, 255));
 } 
 
   /* body {
