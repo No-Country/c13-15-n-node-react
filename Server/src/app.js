@@ -38,6 +38,7 @@ app.get('/', (req, res) => {
     res.status(200).json({
         status: 200,
         message: 'API Calendary Ok!',
+        date: new Date().toLocaleString('es-AR')
     })
 })
 
