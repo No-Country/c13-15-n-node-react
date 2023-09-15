@@ -97,7 +97,7 @@ export const intervalo = [
 // 🔽 GET /api/servicios?servicio_id=<UUID></UUID>
 export const myBussinesData = {
 	identificador: "01d32f3c-40da-4db8-a154-c006845f8399",
-	nombre_de_servicio: "Peluqueria Don Juan",
+	nombre_del_servicio: "Peluqueria Don Juan",
 	meses: [ 9, 10, 11, 12 ],
 	dias: [ 1,2,3,4,5 ],
 	horarios: {

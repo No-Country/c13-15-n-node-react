@@ -18,8 +18,8 @@ const coma = ",";
 
 export const mapDataToSend = (data) => {
     if (data) {
-        data.dias = data.dias.split(",")
-        data.meses = data.meses.split(",")
+        data.dias = data.dias.toLowerCase().split(",")
+        data.meses = data.meses.toLowerCase().split(",")
         const horarios = {
             inicio: data.inicio,
             fin: data.fin
@@ -42,12 +42,16 @@ export const mapDataToSend = (data) => {
 // }
 export const mapDataMyBusinessShow = (myBussinesData) => {
 
-    const name = myBussinesData.nombre_de_servicio;
+    console.log({myBussinesData});
+
+    var URLdomain = window.location.host;
+
+    const name = myBussinesData.nombre_del_servicio;
     const month = myBussinesData.meses && formattedDailySchedules(myBussinesData.meses, mesesRAW)
     const days = myBussinesData.dias && formattedDailySchedules(myBussinesData.dias, diasRAW)
     const hora_ini = myBussinesData.horarios.inicio && formattedDailySchedules([myBussinesData.horarios.inicio], Hora)
     const hora_fin = myBussinesData.horarios.fin && formattedDailySchedules([myBussinesData.horarios.fin], Hora)
-    const public_rout =  PATH_FRONT + PATH_CALENDAR + '/' + myBussinesData.identificador
+    const public_rout =  URLdomain + PATH_CALENDAR + '/' + myBussinesData.identificador
 
     return { name, month,  days, hora_ini, hora_fin, public_rout}
 }

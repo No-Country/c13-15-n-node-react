@@ -5,7 +5,7 @@ export default function Layout() {
     return (
         <>
             <NavbarCustom />            
-            <div className='max-w-screen overflow-x-hidden' >
+            <div className='max-w-screen overflow-x-hidden h-full' >
                 <Outlet />
             </div>
         </>
