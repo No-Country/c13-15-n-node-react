@@ -79,13 +79,8 @@ No necesita instalacion, porque se encuentra desplegado en internet, en el caso 
 
 
 ## Capturas
-
-![Alt text](image.png)
-![Alt text](image-1.png)
-![Alt text](image-2.png)
-![Alt text](image-3.png)
-![Alt text](image-4.png)
-
-
-##  Licencia
-Este proyecto esta bajo la licencia [Equipo15 - T/Noche](/LICENCE).
+![Alt text](src/assets/captura1.jpg)
+![Alt text](src/assets/captura2.jpg)
+![Alt text](src/assets/captura3.jpg)
+![Alt text](src/assets/captura4.jpg)
+![Alt text](src/assets/captura5.jpg)
