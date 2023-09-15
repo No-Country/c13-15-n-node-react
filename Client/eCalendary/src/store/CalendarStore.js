@@ -6,5 +6,9 @@ export const useCalendarStore = create((set) => ({
   setSelectedDate: (newSelectedDate) =>  set((state) => ({selectedDate : newSelectedDate})),
  
   currentMonth : new Date(),
-  setCurrentMonth: (newMonth) =>  set((state) => ({currentMonth : newMonth}))
+  setCurrentMonth: (newMonth) =>  set((state) => ({currentMonth : newMonth})),
+
+  businessCalendary : {},
+  setBusinessCalendary: (newBusinessCalendary) =>  set((state) => ({businessCalendary : newBusinessCalendary}))
 }))
+
