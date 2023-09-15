@@ -14,6 +14,7 @@ export default function NavbarCustom() {
   const ruta = location.pathname
   const [hasBusiness,serviceResponse] = useBusinessStore((state) => [state.hasBusiness, state.serviceResponse])
 
+
   const logout_sesion = () => {
     redirect(PATH_HOME)
     logout()
@@ -32,20 +33,23 @@ export default function NavbarCustom() {
             Features
           </Link>
         </NavbarItem> */}
-        <NavbarItem isActive>
-          <Link to={PATH_BUSINESS} >
-            Servicios
-          </Link>
-        </NavbarItem>
-
-        {hasBusiness &&
-          <NavbarItem>
-            {/* <Link color="foreground" to={PATH_CALENDAR}> */}
-            <Link color="foreground" to={`${PATH_CALENDAR}/${serviceResponse.identificador}`}>
-              Calendario
-            </Link>
+        {
+          logged && 
+            <NavbarItem isActive>
+              <Link to={PATH_BUSINESS} >
+                Servicios
+              </Link>
+            </NavbarItem>
+        }
+        {
+          hasBusiness && 
+            <NavbarItem>
+              <Link color="foreground" to={`${PATH_CALENDAR}/${serviceResponse.identificador}`}>
+                Calendario
+              </Link>
           </NavbarItem>
         }
+
       </NavbarContent>
       {
         logged ? <button onClick={() => logout_sesion()} className="text-white">Cerrar sesion</button> 
@@ -62,6 +66,7 @@ export default function NavbarCustom() {
                 <Link to={PATH_REGISTER}>Registrarse</Link>
               </NavbarItem>
             }
+
           </NavbarContent>
       }
     </Navbar>
