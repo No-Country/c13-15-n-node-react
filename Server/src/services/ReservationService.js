@@ -10,18 +10,18 @@ class ReservationService {
       console.log( ">> DATE ON SERVICE", date, new Date(date) );
 
       try {
+         const a_date = await Dates.findOne({
+            where: {
+               schedule: new Date( date )
+            }, include: ReservationModel
+         })
+
          const reserva = await ReservationModel.create({
             reservation_id: uuidv4()
             , username: reservation_data.cliente
             , email: reservation_data.email
             , schedules: hours.join(",")
             , service_id: reservation_data.service_id
-         })
-
-         const a_date = await Dates.findOne({
-            where: {
-               schedule: new Date( date )
-            }
          })
 
          console.log( ">> RESERVATION SERVICE", date, reservation_data.service_id )
