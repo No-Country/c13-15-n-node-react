@@ -83,17 +83,17 @@ const FormBusiness = () => {
                     <Input
                         {...register("nombre_del_servicio")}
                         label="Nombre del servicio"
-                        placeholder="Peluqueria Pepito"
+                        placeholder="Ejemplo: Peluqueria Pepito"
                         labelPlacement="outside"
                         className=""
                         fullWidth
                         errorMessage={formValidation(errors, "nombre_del_servicio")}
                     />
-                    <MySelect name="meses" lista={meses} titulo="Meses de Año laborales" seleccionMultiple={true} />
-                    <MySelect name="dias" lista={dias} titulo="Dias laborales a ala semana" seleccionMultiple={true} />
-                    <MySelect name="inicio" lista={Hora} titulo="Hora de inico del servicio" seleccionMultiple={false} />
+                    <MySelect name="inicio" lista={Hora} titulo="Horario de inico del servicio" seleccionMultiple={false} />
+                    <MySelect name="dias" lista={dias} titulo="Dias laborales de la semana" seleccionMultiple={true} />
                     <MySelect name="fin" lista={Hora} titulo="Hora de cierre del servicio" seleccionMultiple={false} />
-                    <MySelect name="intervalo" lista={intervalo} titulo="Intervalo" />
+                    <MySelect name="meses" lista={meses} titulo="Meses de Año laborales" seleccionMultiple={true} />
+                    <MySelect name="intervalo" lista={intervalo} titulo="Intervalo de tiempo" />
 
                     <Button
                         color='primary'
