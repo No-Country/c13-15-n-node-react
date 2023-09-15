@@ -15,6 +15,6 @@ const initModels=()=>{
 
     Servicio.belongsToMany( Horarios, { through: HorarioServicioModel } )   
     Horarios.belongsToMany( Servicio, { through: HorarioServicioModel } )  
-
+    
 }
 module.exports=initModels
