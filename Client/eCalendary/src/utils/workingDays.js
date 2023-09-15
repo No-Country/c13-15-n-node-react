@@ -1,5 +1,5 @@
 const daysOfWeekWorked = [
-    2,3,4,5,6
+    1,2,3,4,5
 ]
 
 const isDaysOfWeekWorked = (dayIndex) => {
