@@ -19,7 +19,7 @@ const MyBusinessInormation = () => {
     return (
 
         <Card className='w-full md:w-3/4 m-auto'>
-            <h2 className='text-center text-xl pt-4'>Mi negocio</h2>
+            <h2 className='text-center text-xl pt-4'>Mi Servicio</h2>
             <CardBody className='w-full grid grid-cols-1 md:grid-cols-2 gap-4 divide-y divide-gray-200 dark:text-white dark:divide-gray-700'>
 
 
@@ -64,7 +64,7 @@ const MyBusinessInormation = () => {
 
 
                 <div className=' w-full pt-6 flex flex-col gap-2 md:col-span-2'>
-                    <span className='text-large' >Ruta pública:</span>
+                    <span className='text-large' >Link a compartir:</span>
                     <div className='flex flex-col md:flex-row gap-4 justify-center items-center ' >
 
                         <Code className='w-full overflow-y-hidden' color="primary" size="md" ref={ref}>{public_rout} </Code>

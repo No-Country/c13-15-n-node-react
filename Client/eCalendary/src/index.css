@@ -40,7 +40,7 @@ button:focus {
 }
 
 body {
-  background-color: #8aa8e565; 
+  background: radial-gradient(at right center, rgb(219, 234, 254), rgb(147, 197, 253), rgb(59, 130, 246)); 
 } 
 
   /* body {
