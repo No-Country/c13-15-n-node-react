@@ -7,6 +7,9 @@ import { useForm, FormProvider} from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from './calendar-schema';
 import { formValidation } from '../../../../componets/ErrorMessage';
+import { PATH_HOME } from '../../../../routers/routerPaths';
+import { useNavigate } from 'react-router-dom';
+import { myToasterSuccess } from '../../../../utils/myToaster';
 
 const ModalDateConfirm = () => {
 
@@ -18,6 +21,8 @@ const ModalDateConfirm = () => {
 
     const InputSelectedDate = useMemo(() => toInputDate(selectedDate), [selectedDate]);
     const descriptionDelectedDate = useMemo(() => toDateFormater(selectedDate), [selectedDate]);
+
+    const navigate = useNavigate();
 
 
     const formMethods  = useForm({
@@ -41,7 +46,8 @@ const ModalDateConfirm = () => {
     const onSubmit = async (data) => {
 
         if (data) {
-
+            myToasterSuccess("¡Reserva realizada!")
+            navigate(PATH_HOME)
             const newData = {...data, selectedHours, selectedDate};
             //enviamos NewData como post
         }
@@ -94,6 +100,8 @@ const ModalDateConfirm = () => {
                                         />
 
                                         <Divider/>
+
+                                        <h2 className='text-center'>¿Estas seguro se reservar en esta fecha?</h2>
 
                                         <Input
                                             onlyRead={true} disabled={true}

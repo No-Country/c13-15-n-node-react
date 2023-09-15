@@ -6,6 +6,7 @@ import { PATH_API_LOGIN } from '../../../../routers/routerApi'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../../../context/AuthContext';
+import { myToasterSuccess } from '../../../../utils/myToaster';
 
 // import { getUser } from '../../services/user';
 
@@ -35,6 +36,7 @@ const FormCustom = ({title, ruta}) => {
           navigate(PATH_HOME)
           return axios.post(PATH_API_LOGIN, data)
           .then((response) => {
+                myToasterSuccess("Bienvenido")
                 const token = response.data.token;
                 localStorage.setItem('token', token);
                 login()
@@ -43,6 +45,7 @@ const FormCustom = ({title, ruta}) => {
         })
       :  axios.post(ruta, data)
           .then((response) => {
+            myToasterSuccess("Bienvenido")
             const token = response.data.token;
             localStorage.setItem('token', token);
             login()

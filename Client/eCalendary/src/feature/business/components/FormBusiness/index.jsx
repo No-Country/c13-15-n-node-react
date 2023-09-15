@@ -63,7 +63,8 @@ const FormBusiness = () => {
                 .catch(error => {
                     console.log('Error al hacer la peticion', error)
                 })
-
+                
+                myToasterSuccess("Tu servicio fue registrado")
             // postDataPrivate({ url: PATH_API_SERVICIO, token: token})
             const publicCalendarRoute = `${PATH_CALENDAR}/${serviceId}`
             navigate(publicCalendarRoute)
