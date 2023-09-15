@@ -1,7 +1,7 @@
 const { expect } = require('chai')
 const transform_to_months_and_days_from = require("../src/utils/transform_to_months_and_days_from")
 
-describe.only('Transformar una lista de fechas a 2 array de meses y días de la semana', function () {
+describe('Transformar una lista de fechas a 2 array de meses y días de la semana', function () {
    [
       {
          dates: ['2023-09-11']
