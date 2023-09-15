@@ -38,4 +38,5 @@ const generate_days_from = function (params) {
     }, []);
 }
 
+
 module.exports = generate_days_from;

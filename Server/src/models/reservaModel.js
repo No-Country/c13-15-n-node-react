@@ -1,6 +1,5 @@
 const {DataTypes } = require("sequelize");
 const sequelize= require('../utils/connect');
-const HorarioServicioModel = require("./horariosServicioModel");
 
 
 const ReservationModel = sequelize.define( 'reservas', {
@@ -16,14 +15,14 @@ const ReservationModel = sequelize.define( 'reservas', {
       type: DataTypes.STRING,
       allowNull: false
    },
-   phone: {
-      type: DataTypes.STRING
-      , allowNull: false
-   },
    schedules: {
       type: DataTypes.STRING
       , allowNull: false
+   },
+   service_id: {
+      type: DataTypes.UUID
+      , allowNull: false
    }
-});
+}, { timestamps: false });
 
 module.exports = ReservationModel

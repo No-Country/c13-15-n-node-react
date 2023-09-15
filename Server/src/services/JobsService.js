@@ -2,9 +2,7 @@ const { v4: uuidv4 }                      = require('uuid');
 const generate_days_from                  = require('../utils/days_generator');
 const transform_to_months_and_days_from   = require('../utils/transform_to_months_and_days_from');
 const JobModel                            = require('../models/servicioModel');
-const JobScheduled                        = require('../models/horariosServicioModel')
-const UserModel                           = require('../models/usuarioModel')
-const ScheduleModel                       = require('../models/horarioModel');
+const ScheduleModel                       = require('../models/FechaModel');
 
 const JobsService = class {
    async list_all(params = {}) {
