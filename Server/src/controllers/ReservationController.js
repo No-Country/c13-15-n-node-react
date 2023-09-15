@@ -1,4 +1,5 @@
 const reservations = require('../services/ReservationService');
+const TAG = "ON RESERVATION CONTROLLER"
 
 class ReservationController {
    async create( req, res ) {
@@ -23,12 +24,20 @@ class ReservationController {
       
       try {
          const reservation = await reservations.create({ service_id, cliente, email, fecha, horas })
+         const date = await reservation.getSchedule();
+         console.log( TAG, date.schedule)
          if(!reservation) {
             res.status(400).json( {message: 'Ya se encuentra reservado' } )
          }
          res.status(201).json({
             message: "Reserva realizada"
-            , reserva: reservation
+            , reserva: {
+               service_id: reservation.service_id,
+               cliente: reservation.username,
+               email: reservation.email,
+               fecha: date.schedule,
+               horas: reservation.schedules.split(",").map( hour => +hour )
+            }
          })
       } catch (error) {
          res.status(503).json({ message: error });

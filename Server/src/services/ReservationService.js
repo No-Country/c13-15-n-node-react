@@ -1,18 +1,19 @@
 const { v4: uuidv4 } = require('uuid');
 const ReservationModel = require('../models/reservaModel')
 const Dates = require('../models/FechaModel')
+const TAG   = ">> RESERVATION SERVICE"
 
 class ReservationService {
    async create( reservation_data ) {
       const date = reservation_data.fecha;
       const hours = reservation_data.horas;
 
-      console.log( ">> DATE ON SERVICE", date, new Date(date) );
+      console.log( TAG, date );
 
       try {
          const a_date = await Dates.findOne({
             where: {
-               schedule: new Date( date )
+               schedule: date
             }, include: ReservationModel
          })
 
@@ -22,9 +23,11 @@ class ReservationService {
             , email: reservation_data.email
             , schedules: hours.join(",")
             , service_id: reservation_data.service_id
+         }, {
+            include: Dates
          })
 
-         console.log( ">> RESERVATION SERVICE", date, reservation_data.service_id )
+         console.log( TAG, a_date.schedule_id, reservation_data.service_id )
          await reserva.setSchedule( a_date );
          return reserva
       } catch (error) {
