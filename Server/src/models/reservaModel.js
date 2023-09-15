@@ -23,6 +23,6 @@ const ReservationModel = sequelize.define( 'reservas', {
       type: DataTypes.UUID
       , allowNull: false
    }
-});
+}, { timestamps: false });
 
 module.exports = ReservationModel

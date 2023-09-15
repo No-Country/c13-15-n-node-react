@@ -9,6 +9,6 @@ const Schedules = sequelize.define('schedules', {
    }, schedule: {
       type: DataTypes.DATEONLY, allowNull: false
    }
-});
+}, { timestamps: false });
 
 module.exports = Schedules
