@@ -50,17 +50,18 @@ const JobsService = class {
             , userId: job_data.userId
          });
 
-         console.log(">>>> ON JOBS SERVICE", job)
+         console.log(">>>> ON JOBS SERVICE", job.name, job_data.months, job_data.days )
 
          const days_schedules = generate_days_from({
-            "months": job_data.months,
-            "days": job_data.days
-         }).forEach(async element => {
+            months: job_data.months,
+            days: job_data.days
+         })
+         console.log( ">>>> JOBS SERVICES ON DAYS CREATED", days_schedules.length );
+         days_schedules.forEach(async element => {
             const schedule = await ScheduleModel.create({
                schedule_id: uuidv4(), schedule: element
             })
             await job.addSchedule(schedule);
-            console.log(">>>> JOB SERVICE ON ADD SCHEDULE", schedule.schedule )
          });
 
          return job;
@@ -76,7 +77,7 @@ const JobsService = class {
    }
 
    async getJobCalendary(params = { date: null }) {
-      console.log(">>>> ON JOBS SERVICE", params );
+      console.log(">>>> JOBS SERVICE ON CALENDARY", params );
       const schedulesJob = await JobModel.findAll({
          where: {
             service_id: params.serviceId
@@ -101,17 +102,25 @@ const JobsService = class {
             return d.schedule === params.date
          } )
 
-         console.log( ">>>>", r[0] );
          result.job = []
-         const dates_reserved = r[0].reservas;
-         if (dates_reserved.length > 0) {
-            result.job = dates_reserved[0].schedules.split(",").map(x => +x)
-         } 
+         if( r ) {
+            if (r[0]) {
+               const dates_reserved = r[0].reservas;
+               console.info( ">>>> JOBS SERVICE ON", dates_reserved );
+               if (dates_reserved.length > 0) {
+                  result.job = dates_reserved.map( reserva => reserva.schedules.split(",").map(x => +x) ).flat()
+               }
+            }
+         }
+         console.log( ">>>>", r );
+         /*
+         } */
       } else {
          const datesJob = job.schedules.map(data => data.schedule)
          result.dates = transform_to_months_and_days_from(datesJob) 
       }
 
+      console.log(">>>> JOBS SERVICE ON", result );
       return result;
 
    }

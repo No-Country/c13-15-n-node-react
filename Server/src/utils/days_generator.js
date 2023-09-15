@@ -30,8 +30,8 @@ const month_days = function (month) {
 }
 
 const generate_days_from = function (params) {
-    const months = params['months'].map((month) => MONTHS.indexOf(month));
-    const days = params['days'].map((day) => translate_to_days_number(day));
+    const months = params.months.map((month) => MONTHS.indexOf(month));
+    const days = params.days.map((day) => translate_to_days_number(day));
     return months.reduce((dates, month) => {
         return dates.concat(month_days(month)
             .filter(day => days.includes(day.getDay())))
