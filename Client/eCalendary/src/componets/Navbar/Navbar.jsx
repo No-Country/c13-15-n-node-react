@@ -5,6 +5,7 @@ import Logo from './Logo'
 import { useLocation } from 'react-router-dom'
 import {AuthContext} from '../../context/AuthContext'
 import { Link } from "react-router-dom";
+import Dropdown  from './Dropdown'
 
 
 export default function NavbarCustom() {
@@ -26,11 +27,14 @@ export default function NavbarCustom() {
             Features
           </Link>
         </NavbarItem> */}
-        <NavbarItem isActive>
-          <Link to={PATH_BUSINESS} >
-            Servicios
-          </Link>
-        </NavbarItem>
+        {
+          logged && 
+            <NavbarItem isActive>
+              <Link to={PATH_BUSINESS} >
+                Servicios
+              </Link>
+            </NavbarItem>
+        }
         <NavbarItem>
           <Link color="foreground" to={PATH_CALENDAR}>
             Calendario
@@ -52,6 +56,7 @@ export default function NavbarCustom() {
                   <Link to={PATH_REGISTER}>Registrarse</Link>
                 </NavbarItem>
             }
+            <Dropdown/>
           </NavbarContent>
       }
     </Navbar>
