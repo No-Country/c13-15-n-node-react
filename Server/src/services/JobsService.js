@@ -60,6 +60,7 @@ const JobsService = class {
                schedule_id: uuidv4(), schedule: element
             })
             await job.addSchedule(schedule);
+            console.log(">>>> JOB SERVICE ON ADD SCHEDULE", schedule.schedule )
          });
 
          return job;
