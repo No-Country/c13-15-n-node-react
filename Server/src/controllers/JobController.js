@@ -8,7 +8,7 @@ const JobController = class {
          const { job, months, wdays } = await jobs.list_all({ user_id: user_id });
          console.log(">> CONTROLLER", months, wdays, job.service_id);
          res.json({
-            id: job.service_id
+            identificador: job.service_id
             , nombre_del_servicio: job.name
             , meses: months
             , dias: wdays
