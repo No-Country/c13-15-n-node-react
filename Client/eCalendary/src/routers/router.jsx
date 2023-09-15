@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Calendar from "../feature/Calendar/pages/Calendar";
 import Layout from "../componets/Layaout";
 import Business from "../feature/business/pages/business";
-import { PATH_BUSINESS, PATH_CALENDAR, PATH_LOGIN, PATH_REGISTER } from "./routerPaths";
+import { PATH_BUSINESS, PATH_CALENDAR, PATH_CALENDAR_CLIENT, PATH_LOGIN, PATH_REGISTER } from "./routerPaths";
 import Login from "../feature/Sesion/pages/Login";
 import Register from "../feature/Sesion/pages/Register";
 import Home from "../feature/home/pages/index"
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
                 element: <Register/>
             },
             {
-                path: PATH_CALENDAR,
+                path: PATH_CALENDAR_CLIENT,
                 element: <Calendar/>
             },
         ]
@@ -40,9 +40,9 @@ const router = createBrowserRouter([
     {
         path: "/",
         element:
-                <PrivateRouter>
-                    <Layout />
-                </PrivateRouter>,
+                // <PrivateRouter>
+                    <Layout />,
+                // </PrivateRouter>,
         errorElement: <p>Error</p>,
 
         children:[
