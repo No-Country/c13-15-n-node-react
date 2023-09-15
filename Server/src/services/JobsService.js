@@ -101,18 +101,17 @@ const JobsService = class {
          } )
 
          console.log( ">>>>", r[0] );
-         result.job = r[0].reservas[0].schedules.split(",").map( x => +x )
+         result.job = []
+         const dates_reserved = r[0].reservas;
+         if (dates_reserved.length > 0) {
+            result.job = dates_reserved[0].schedules.split(",").map(x => +x)
+         } 
       } else {
          const datesJob = job.schedules.map(data => data.schedule)
          result.dates = transform_to_months_and_days_from(datesJob) 
       }
 
       return result;
-      
-      return {
-         job: schedulesJob[0],
-         dates: transform_to_months_and_days_from(datesJob)
-      }
 
    }
 }
