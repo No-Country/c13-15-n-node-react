@@ -7,21 +7,21 @@ import Business from "../feature/business/pages/business";
 import { PATH_BUSINESS, PATH_CALENDAR, PATH_LOGIN, PATH_REGISTER } from "./routerPaths";
 import Login from "../feature/Sesion/pages/Login";
 import Register from "../feature/Sesion/pages/Register";
-
-import Landing from "../componets/Landing/Landing.jsx";
+import Home from "../feature/home/pages/index"
+import { navbar } from "@nextui-org/react";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element:  //<PublicRouter>
                     <Layout />,            
-                 //</PublicRouter>,
+                    //</PublicRouter>,
         errorElement: <p>Error</p>,
 
         children:[
             {
                 index: true,
-                element: <Landing/>,
+                element: <Home />,
             },
             {
                 path: PATH_LOGIN,

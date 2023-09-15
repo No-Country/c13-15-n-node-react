@@ -13,10 +13,10 @@ export default function NavbarCustom() {
   const ruta = location.pathname
 
   return (
-    <Navbar className="bg-sky-700 text-white">
-      <NavbarBrand>
-        <Logo />
-        <Link to={PATH_HOME}>
+    <Navbar className="bg-blue-700 text-white">
+        <NavbarBrand>
+          <Logo />
+          <Link to={PATH_HOME}>
           <p className="font-bold text-inherit text-white">E-Calendary</p>
         </Link>
         </NavbarBrand>
