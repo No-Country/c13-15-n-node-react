@@ -1,6 +1,7 @@
 import { Link, Image } from "@nextui-org/react";
 import Container from "./container";
 import heroImg from "./hero.png";
+import { PATH_BUSINESS } from "../../../routers/routerPaths";
 
 const Hero = () => {
   return (
@@ -20,12 +21,15 @@ const Hero = () => {
             <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <a
               //redirecionar a servicio
-                href=""
-                target="_blank"
+                href={PATH_BUSINESS}
+                // target="_blank"
                 rel="noopener"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-blue-700 rounded-md ">
                 Empieza Gratis
               </a>
+              {/* <Link to={PATH_BUSINESS}>
+                <p className="px-8 py-4 text-lg font-medium text-center text-white bg-blue-700 rounded-md "> Empieza Gratis</p>
+              </Link> */}
             </div>
           </div>
         </div>

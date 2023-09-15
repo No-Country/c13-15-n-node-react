@@ -1,4 +1,4 @@
-import useSWR from "swr"; 
+// import useSWR from "swr"; 
 import { PATH_API_SERVICIO , PATH_API_GET_SERVICIO} from '../../../routers/routerApi';
 import { fetchEndpoint, fetcherGetDataPrivate, getDataPrivate } from '../../../services/getData';
 import MyBusinessInormation from '../components/MyBusiness';
