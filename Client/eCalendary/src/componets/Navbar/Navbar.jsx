@@ -15,10 +15,10 @@ export default function NavbarCustom() {
   const [hasBusiness,serviceResponse] = useBusinessStore((state) => [state.hasBusiness, state.serviceResponse])
 
   return (
-    <Navbar className="bg-sky-700 text-white sticky">
-      <NavbarBrand>
-        <Logo />
-        <Link to={PATH_HOME}>
+    <Navbar className="bg-blue-700 text-white">
+        <NavbarBrand>
+          <Logo />
+          <Link to={PATH_HOME}>
           <p className="font-bold text-inherit text-white">E-Calendary</p>
         </Link>
       </NavbarBrand>

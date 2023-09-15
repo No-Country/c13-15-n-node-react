@@ -79,8 +79,9 @@ No necesita instalacion, porque se encuentra desplegado en internet, en el caso 
 
 
 ## Capturas
-![Alt text](src/assets/captura1.jpg)
-![Alt text](src/assets/captura2.jpg)
-![Alt text](src/assets/captura3.jpg)
-![Alt text](src/assets/captura4.jpg)
-![Alt text](src/assets/captura5.jpg)
+
+![Alt text](src/assets/Imagen1.jpg)
+![Alt text](src/assets/Imagen2.jpg)
+![Alt text](src/assets/Imagen3.jpg)
+![Alt text](src/assets/Imagen4.jpg)
+![Alt text](src/assets/Imagen5.jpg)
