@@ -49,8 +49,8 @@ export const mapDataMyBusinessShow = (myBussinesData) => {
     const name = myBussinesData.nombre_del_servicio;
     const month = myBussinesData.meses && formattedDailySchedules(myBussinesData.meses, mesesRAW)
     const days = myBussinesData.dias && formattedDailySchedules(myBussinesData.dias, diasRAW)
-    const hora_ini = myBussinesData.horarios.inicio && formattedDailySchedules([myBussinesData.horarios.inicio], Hora)
-    const hora_fin = myBussinesData.horarios.fin && formattedDailySchedules([myBussinesData.horarios.fin], Hora)
+    const hora_ini = myBussinesData.horarios?.inicio && formattedDailySchedules([myBussinesData.horarios?.inicio], Hora)
+    const hora_fin = myBussinesData.horarios?.fin && formattedDailySchedules([myBussinesData.horarios?.fin], Hora)
     const public_rout =  URLdomain + PATH_CALENDAR + '/' + myBussinesData.identificador
 
     return { name, month,  days, hora_ini, hora_fin, public_rout}
