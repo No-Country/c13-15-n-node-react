@@ -19,15 +19,9 @@ const ReservationModel = sequelize.define( 'reservas', {
       type: DataTypes.STRING
       , allowNull: false
    },
-<<<<<<< HEAD
-   horas:{
-      type:DataTypes.STRING
-      
-=======
    service_id: {
       type: DataTypes.UUID
       , allowNull: false
->>>>>>> back
    }
 }, { timestamps: false });
 
