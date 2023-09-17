@@ -9,7 +9,13 @@ const Services = sequelize.define('services', {
    },
    name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false, unique: true
+   },
+   init_time: {
+      type: DataTypes.INTEGER, defaultValue: 8
+   },
+   finish_time: {
+      type: DataTypes.INTEGER, defaultValue: 16
    },
    init_time: {
       type: DataTypes.INTEGER, 
