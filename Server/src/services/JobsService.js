@@ -112,9 +112,7 @@ const JobsService = class {
                }
             }
          }
-         console.log( ">>>>", r );
-         /*
-         } */
+
       } else {
          const datesJob = job.schedules.map(data => data.schedule)
          result.dates = transform_to_months_and_days_from(datesJob) 
