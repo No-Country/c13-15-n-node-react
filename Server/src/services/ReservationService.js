@@ -1,7 +1,9 @@
-const { v4: uuidv4 } = require('uuid');
-const ReservationModel = require('../models/reservaModel')
-const Dates = require('../models/FechaModel')
-const TAG   = ">> RESERVATION SERVICE"
+const { v4: uuidv4 }    = require('uuid');
+const ReservationModel  = require('../models/reservaModel')
+const JobModel          = require('../models/servicioModel')
+const Dates             = require('../models/FechaModel');
+const { where }         = require('sequelize');
+const TAG               = ">> RESERVATION SERVICE"
 
 class ReservationService {
    async create( reservation_data ) {
@@ -33,6 +35,38 @@ class ReservationService {
       } catch (error) {
          console.error( ">> ERROR", error )
       }
+   }
+
+   async list_all_from( params ) {
+      const job = await JobModel.findOne( {
+         where: {
+            userId: params.user
+         }
+      } )
+
+      const bookings = await ReservationModel.findAll( {
+         where: {
+            service_id: job.service_id
+         },
+         include: Dates
+      })
+
+      let result = { message: "no se encontraron reservas el usuario"}
+
+      if( bookings ) {
+         result = {
+            service_id: job.service_id
+            , horarios: bookings.map( book => {
+               return book.schedules.split(",").map( hour => new Object({
+                  horario: `${book.schedule.schedule} ${hour}:00`,
+                  cliente: book.username,
+                  email: book.email
+               }))
+            }).flat()
+         }
+      }
+
+      return result
    }
 }
 

@@ -2,6 +2,36 @@ const reservations = require('../services/ReservationService');
 const TAG = "ON RESERVATION CONTROLLER"
 
 class ReservationController {
+   /**
+    * 
+   {
+      "service_id": <UUID_service>,
+      "reservas": [
+         { "horario": "<YYYY-mm-dd HH:MM>"
+            , "cliente": "<nombre-del-cliente>"
+            , "email": "<email-del-cliente>" 
+         }, { "horario": "<YYYY-mm-dd HH:MM>"
+               , "cliente": "<nombre-del-cliente>"
+               , "email": "<email-del-cliente>"
+         }
+      ]
+   } 
+    */
+   async list( req, res ) {
+      const user_id = req.user.id
+      try {
+         const bookings = await reservations.list_all_from( {user: user_id} );
+         if( !bookings ) {
+            return res.status(200).json({message: "no se encontraron reservas" })
+         } 
+         
+         console.log(">> ON BOOKS CONTROLLER", bookings );
+         return res.status(200).json(bookings);
+      } catch (error ) {
+         console.error(">> ERROR ON BOOKS CONTROLLER", error.message )
+      }
+   }
+
    async create( req, res ) {
       const { service_id, cliente, email, fecha, horas } = req.body
       // verificando que servicio sea el correcto
